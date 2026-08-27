@@ -1,9 +1,4 @@
-```javascript
-// api/send-interview.js
-
 export default async function handler(req, res) {
-
-    // Only allow POST requests
     if (req.method !== "POST") {
         return res.status(405).json({
             error: "Method not allowed"
@@ -11,9 +6,7 @@ export default async function handler(req, res) {
     }
 
     try {
-
-        // The browser will send the recording as JSON
-        const { audio, filename } = req.body;
+        const { audio, filename } = req.body || {};
 
         if (!audio) {
             return res.status(400).json({
@@ -21,8 +14,6 @@ export default async function handler(req, res) {
             });
         }
 
-        // Your Discord webhook is stored safely
-        // inside Vercel Environment Variables.
         const webhook = process.env.DISCORD_WEBHOOK_URL;
 
         if (!webhook) {
@@ -31,57 +22,43 @@ export default async function handler(req, res) {
             });
         }
 
-        // Convert Base64 audio back into binary
         const audioBuffer = Buffer.from(audio, "base64");
 
-        // Discord requires multipart/form-data for file uploads
-        const boundary =
-            "----InterviewTapeBoundary" +
-            Date.now();
+        const form = new FormData();
 
-        const beforeFile =
-            `--${boundary}\r\n` +
-            `Content-Disposition: form-data; name="payload_json"\r\n` +
-            `Content-Type: application/json\r\n\r\n` +
+        form.append(
+            "payload_json",
             JSON.stringify({
                 content:
                     "🎙️ **NEW INTERVIEW TAPE RECEIVED**\n\n" +
                     "🎬 Arnav has submitted his Friendship Day interview."
-            }) +
-            `\r\n`;
+            })
+        );
 
-        const fileHeader =
-            `--${boundary}\r\n` +
-            `Content-Disposition: form-data; name="file"; filename="${filename || "arnav-interview.webm"}"\r\n` +
-            `Content-Type: audio/webm\r\n\r\n`;
+        const audioBlob = new Blob(
+            [audioBuffer],
+            {
+                type: "audio/webm"
+            }
+        );
 
-        const ending =
-            `\r\n--${boundary}--\r\n`;
+        form.append(
+            "file",
+            audioBlob,
+            filename || "arnav-interview.webm"
+        );
 
-        // Combine everything into one upload
-        const body = Buffer.concat([
-            Buffer.from(beforeFile),
-            Buffer.from(fileHeader),
-            audioBuffer,
-            Buffer.from(ending)
-        ]);
+        const discordResponse = await fetch(
+            webhook,
+            {
+                method: "POST",
+                body: form
+            }
+        );
 
-        // Send recording to Discord
-        const response = await fetch(webhook, {
-            method: "POST",
-
-            headers: {
-                "Content-Type":
-                    `multipart/form-data; boundary=${boundary}`
-            },
-
-            body: body
-        });
-
-        if (!response.ok) {
-
+        if (!discordResponse.ok) {
             const errorText =
-                await response.text();
+                await discordResponse.text();
 
             console.error(
                 "Discord error:",
@@ -94,20 +71,20 @@ export default async function handler(req, res) {
         }
 
         return res.status(200).json({
-            success: true,
-            message: "Interview successfully sent."
+            success: true
         });
 
     } catch (error) {
 
         console.error(
-            "Interview upload error:",
+            "FUNCTION ERROR:",
             error
         );
 
         return res.status(500).json({
-            error: "Something went wrong."
+            error:
+                error.message ||
+                "Something went wrong."
         });
     }
 }
-```
