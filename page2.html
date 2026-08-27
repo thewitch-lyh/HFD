@@ -1,0 +1,1485 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Arnav × Swastika — The Reel</title>
+
+<style>
+
+/* =====================================================
+   PALETTE
+===================================================== */
+
+:root {
+    --teal: #4CAFAE;
+    --rose: #CE6385;
+    --pink: #E9B9B4;
+    --blush: #F8D0D0;
+    --peach: #FCCF90;
+    --cream: #FEE7BC;
+    --ink: #30252b;
+    --white: #fffaf0;
+}
+/* =====================================================
+   NEXT PAGE
+===================================================== */
+
+.next-wrap {
+
+    text-align: center;
+
+    padding: 45px 0 20px;
+
+}
+
+
+.next-note {
+
+    display: inline-block;
+
+    color: var(--peach);
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 18px;
+
+    transform: rotate(-2deg);
+
+}
+
+
+.next-button {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 15px 25px;
+
+    background: var(--rose);
+
+    color: white;
+
+    text-decoration: none;
+
+    border: 3px solid var(--white);
+
+    box-shadow: 6px 6px 0 var(--teal);
+
+    font-size: 9px;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease,
+        background .2s ease;
+
+}
+
+
+.next-button:hover {
+
+    transform:
+        translate(4px, 4px)
+        rotate(-1deg);
+
+    box-shadow: 2px 2px 0 var(--teal);
+
+    background: var(--teal);
+
+    color: var(--ink);
+
+}
+
+
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =====================================================
+   BODY
+===================================================== */
+
+body {
+
+    min-height: 100vh;
+
+    background:
+        radial-gradient(circle at 10% 15%, var(--rose) 0 5%, transparent 5.5%),
+        radial-gradient(circle at 90% 80%, var(--teal) 0 7%, transparent 7.5%),
+        var(--ink);
+
+    color: var(--white);
+
+    font-family: "Courier New", monospace;
+
+    overflow-x: hidden;
+}
+
+
+/* =====================================================
+   FILM GRAIN
+===================================================== */
+
+body::after {
+
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 100;
+
+    opacity: .08;
+
+    background-image:
+        repeating-radial-gradient(
+            circle at 0 0,
+            transparent 0,
+            transparent 2px,
+            white 3px
+        );
+
+}
+
+
+/* =====================================================
+   TOP HEADER
+===================================================== */
+
+.header {
+
+    height: 70px;
+
+    border-bottom: 3px solid var(--white);
+
+    background: var(--rose);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 30px;
+
+    position: relative;
+
+    z-index: 10;
+
+}
+
+
+.header-title {
+
+    font-size: 11px;
+
+    letter-spacing: 3px;
+
+    font-weight: bold;
+
+}
+
+
+.header-record {
+
+    font-size: 8px;
+
+    background: var(--cream);
+
+    color: var(--ink);
+
+    padding: 8px 12px;
+
+    border: 2px solid var(--ink);
+
+    transform: rotate(2deg);
+
+}
+
+
+/* =====================================================
+   MAIN
+===================================================== */
+
+.main {
+
+    width: min(1100px, 94vw);
+
+    margin: 0 auto;
+
+    padding: 45px 0 80px;
+
+}
+
+
+/* =====================================================
+   INTRO
+===================================================== */
+
+.intro {
+
+    text-align: center;
+
+    margin-bottom: 45px;
+
+}
+
+
+.kicker {
+
+    display: inline-block;
+
+    background: var(--teal);
+
+    color: var(--ink);
+
+    border: 3px solid var(--white);
+
+    padding: 9px 15px;
+
+    font-size: 9px;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+    transform: rotate(-2deg);
+
+    box-shadow: 5px 5px 0 var(--rose);
+
+    margin-bottom: 20px;
+
+}
+
+
+h1 {
+
+    font-family: Georgia, serif;
+
+    font-size: clamp(48px, 9vw, 90px);
+
+    line-height: .85;
+
+    color: var(--cream);
+
+    font-weight: normal;
+
+    letter-spacing: -4px;
+
+}
+
+
+h1 span {
+
+    color: var(--peach);
+
+    display: block;
+
+    font-size: .35em;
+
+    letter-spacing: 4px;
+
+    margin-top: 15px;
+
+    transform: rotate(2deg);
+
+}
+
+
+/* =====================================================
+   FILM REEL
+===================================================== */
+
+.reel {
+
+    position: relative;
+
+    padding: 35px 0;
+
+}
+
+
+/* =====================================================
+   FILM STRIP
+===================================================== */
+
+.film {
+
+    position: relative;
+
+    background: var(--white);
+
+    border-top: 22px solid var(--ink);
+
+    border-bottom: 22px solid var(--ink);
+
+    padding: 38px 28px;
+
+    box-shadow:
+        0 10px 0 var(--rose),
+        0 -10px 0 var(--teal);
+
+}
+
+
+/* HOLES */
+
+.film::before,
+.film::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+
+    height: 12px;
+
+    background:
+        repeating-linear-gradient(
+            90deg,
+            transparent 0 15px,
+            var(--ink) 15px 34px,
+            transparent 34px 48px
+        );
+
+}
+
+
+.film::before {
+    top: -18px;
+}
+
+
+.film::after {
+    bottom: -18px;
+}
+
+
+/* =====================================================
+   FRAME
+===================================================== */
+
+.frame {
+
+    position: relative;
+
+    background: var(--ink);
+
+    border: 7px solid var(--ink);
+
+    margin-bottom: 38px;
+
+    padding: 7px;
+
+    transform: rotate(-.7deg);
+
+    box-shadow: 8px 8px 0 var(--teal);
+
+}
+
+
+.frame:nth-child(even) {
+
+    transform: rotate(.8deg);
+
+    box-shadow: 8px 8px 0 var(--rose);
+
+}
+
+
+/* =====================================================
+   FRAME INNER
+===================================================== */
+
+.frame-inner {
+
+    min-height: 220px;
+
+    background: var(--cream);
+
+    color: var(--ink);
+
+    padding: 28px;
+
+    position: relative;
+
+    overflow: hidden;
+
+}
+
+
+.frame:nth-child(even) .frame-inner {
+
+    background: var(--peach);
+
+}
+
+
+/* =====================================================
+   FRAME NUMBER
+===================================================== */
+
+.frame-number {
+
+    position: absolute;
+
+    top: 12px;
+
+    right: 14px;
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+
+    opacity: .65;
+
+}
+
+
+/* =====================================================
+   DATE STAMP
+===================================================== */
+
+.date {
+
+    display: inline-block;
+
+    padding: 7px 10px;
+
+    border: 2px dashed var(--rose);
+
+    color: var(--rose);
+
+    font-size: 9px;
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+
+    transform: rotate(-3deg);
+
+    margin-bottom: 18px;
+
+}
+
+
+.date.teal {
+
+    color: var(--teal);
+
+    border-color: var(--teal);
+
+}
+
+
+/* =====================================================
+   SCENE TITLES
+===================================================== */
+
+.scene-title {
+
+    font-family: Georgia, serif;
+
+    font-size: clamp(30px, 5vw, 52px);
+
+    color: var(--rose);
+
+    line-height: .95;
+
+    margin-bottom: 15px;
+
+}
+
+
+.frame:nth-child(even) .scene-title {
+
+    color: var(--teal);
+
+}
+
+
+.scene-text {
+
+    max-width: 650px;
+
+    font-family: Georgia, serif;
+
+    font-size: 15px;
+
+    line-height: 1.7;
+
+}
+
+
+/* =====================================================
+   WARNING LABEL
+===================================================== */
+
+.warning {
+
+    display: inline-block;
+
+    margin-top: 20px;
+
+    background: var(--rose);
+
+    color: white;
+
+    border: 2px solid var(--ink);
+
+    padding: 8px 12px;
+
+    font-size: 8px;
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+
+    transform: rotate(2deg);
+
+    box-shadow: 3px 3px 0 var(--ink);
+
+}
+
+
+.warning.teal {
+
+    background: var(--teal);
+
+    color: var(--ink);
+
+}
+
+
+/* =====================================================
+   ORIGIN SCENE
+===================================================== */
+
+.origin {
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--teal) 0 50%,
+            var(--cream) 50%
+        ) !important;
+
+}
+
+
+.origin .scene-title {
+
+    color: var(--ink);
+
+}
+
+
+.origin .scene-text {
+
+    max-width: 600px;
+
+}
+
+
+/* =====================================================
+   SEASON FINALES
+===================================================== */
+
+.finale {
+
+    background: var(--rose) !important;
+
+    color: white;
+
+}
+
+
+.finale .scene-title {
+
+    color: var(--cream);
+
+}
+
+
+.finale .date {
+
+    color: var(--cream);
+
+    border-color: var(--cream);
+
+}
+
+
+.finale .scene-text {
+
+    color: white;
+
+}
+
+
+.finale-badge {
+
+    display: inline-block;
+
+    margin-top: 18px;
+
+    padding: 10px 14px;
+
+    background: var(--ink);
+
+    color: var(--peach);
+
+    border: 2px solid var(--cream);
+
+    font-size: 9px;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+}
+
+
+/* =====================================================
+   FINAL FRAME
+===================================================== */
+
+.final-frame {
+
+    min-height: 300px;
+
+    background: var(--teal);
+
+    color: var(--ink);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 35px;
+
+    border: 8px solid var(--ink);
+
+    position: relative;
+
+    transform: rotate(-1deg);
+
+    box-shadow:
+        10px 10px 0 var(--peach);
+
+}
+
+
+.final-frame::before {
+
+    content: "FINAL CUT";
+
+    position: absolute;
+
+    top: 15px;
+
+    left: 18px;
+
+    font-size: 8px;
+
+    letter-spacing: 3px;
+
+}
+
+
+.final-frame h2 {
+
+    font-family: Georgia, serif;
+
+    font-size: clamp(38px, 7vw, 75px);
+
+    line-height: .9;
+
+    font-weight: normal;
+
+}
+
+
+.final-frame h2 span {
+
+    display: block;
+
+    color: var(--rose);
+
+    margin-top: 15px;
+
+}
+
+
+/* =====================================================
+   MOVING FRAME LIGHT
+===================================================== */
+
+.scan {
+
+    position: absolute;
+
+    top: 0;
+
+    bottom: 0;
+
+    width: 3px;
+
+    background: rgba(255,255,255,.65);
+
+    animation: scan 4s linear infinite;
+
+    pointer-events: none;
+
+}
+
+
+@keyframes scan {
+
+    from {
+        left: -5%;
+    }
+
+    to {
+        left: 105%;
+    }
+
+}
+
+
+/* =====================================================
+   FLICKER
+===================================================== */
+
+.flicker {
+
+    animation: flicker 3s infinite;
+
+}
+
+
+@keyframes flicker {
+
+    0%, 94%, 100% {
+        opacity: 1;
+    }
+
+    95% {
+        opacity: .65;
+    }
+
+    96% {
+        opacity: 1;
+    }
+
+    97% {
+        opacity: .75;
+    }
+
+}
+
+
+/* =====================================================
+   FLOATING DECOR
+===================================================== */
+
+.decor {
+
+    position: fixed;
+
+    z-index: 5;
+
+    pointer-events: none;
+
+    font-size: 25px;
+
+    animation: float 4s ease-in-out infinite;
+
+}
+
+
+.d1 {
+    top: 18%;
+    left: 3%;
+    color: var(--peach);
+}
+
+.d2 {
+    top: 45%;
+    right: 3%;
+    color: var(--rose);
+    animation-delay: 1s;
+}
+
+.d3 {
+    bottom: 15%;
+    left: 4%;
+    color: var(--teal);
+    animation-delay: .5s;
+}
+
+
+@keyframes float {
+
+    50% {
+        transform: translateY(-10px) rotate(8deg);
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .header {
+        padding: 0 15px;
+    }
+
+    .header-title {
+        font-size: 8px;
+        letter-spacing: 1px;
+    }
+
+    .header-record {
+        font-size: 6px;
+    }
+
+    .main {
+        width: 94vw;
+        padding-top: 30px;
+    }
+
+    .film {
+        padding: 25px 15px;
+    }
+
+    .frame {
+        margin-bottom: 28px;
+    }
+
+    .frame-inner {
+        min-height: 250px;
+        padding: 24px 18px;
+    }
+
+    .scene-text {
+        font-size: 14px;
+    }
+
+    .decor {
+        display: none;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header class="header">
+
+    <div class="header-title">
+        ARNAV × SWASTIKA · REEL 01
+    </div>
+
+    <div class="header-record">
+        FRIENDSHIP RECORD
+    </div>
+
+</header>
+
+
+<!-- FLOATING DECOR -->
+
+<div class="decor d1">✦</div>
+<div class="decor d2">✿</div>
+<div class="decor d3">♥</div>
+
+
+<main class="main">
+
+
+<!-- =====================================================
+     INTRO
+===================================================== -->
+
+<section class="intro">
+
+    <div class="kicker">
+        PREVIOUSLY ON: US
+    </div>
+
+    <h1>
+        the reel.
+        <span>somehow, there are seasons.</span>
+    </h1>
+
+</section>
+
+
+<!-- =====================================================
+     ACTUAL FILM
+===================================================== -->
+
+<section class="reel">
+
+<div class="film">
+
+
+<!-- =====================================================
+     ORIGIN SCENE
+===================================================== -->
+
+<div class="frame flicker">
+
+    <div class="frame-inner origin">
+
+        <div class="scan"></div>
+
+        <div class="frame-number">
+            FRAME 001
+        </div>
+
+        <div class="date">
+            ORIGIN SCENE · 2024
+        </div>
+
+        <div class="scene-title">
+            And then we met.
+        </div>
+
+        <p class="scene-text">
+            Somewhere between a random meeting,
+            questionable decisions and absolutely no
+            idea what was about to happen...
+            We became a thing.
+            <br><br>
+            Not planned.
+            Not scripted.
+            Somehow iconic.
+        </p>
+
+        <div class="warning teal">
+            ⚠ THIS WAS NOT THE ORIGINAL PLAN
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+
+<!-- 02 — BROTHER & SISTER -->
+
+<div class="frame">
+
+    <div class="frame-inner">
+
+        <div class="frame-number">
+            FRAME 002
+        </div>
+
+        <div class="date teal">
+            CHAPTER 01
+        </div>
+
+        <h2 class="scene-title">
+            Brother & sister?
+        </h2>
+
+        <p class="scene-text">
+
+            It started with us being
+            brother and sister...
+
+            <br><br>
+
+            Well, were we?
+
+            <br><br>
+
+            I don't know.
+
+            But at least in the beginning,
+            we ACTED like brother and sister!!
+
+            <br><br>
+
+            Then things took a
+            <strong>wild turn...</strong>
+
+        </p>
+
+        <div class="warning">
+            ⚠ WARNING: PLOT DEVELOPING
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- 03 — FALL IN LOVE -->
+
+<div class="frame flicker">
+
+    <div class="frame-inner">
+
+        <div class="scan"></div>
+
+        <div class="frame-number">
+            FRAME 003
+        </div>
+
+        <div class="date">
+            PLOT TWIST · 01
+        </div>
+
+        <h2 class="scene-title">
+            Fall.<br>
+            Fall in.<br>
+            Fall in love.
+        </h2>
+
+        <p class="scene-text">
+
+            And then...
+
+            <br><br>
+
+            friendship.exe crashed.
+
+            <br><br>
+
+            I mean, how could you fall in love
+            with someone you called your brother?!
+
+            <br><br>
+
+            BUT FAHHHH—
+            <br>
+            I'M INSANEEEE :((
+
+        </p>
+
+        <div class="status">
+            STATUS: SOMEHOW RECOVERED
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- 04 — SEASON FINALE 01 -->
+
+<div class="frame">
+
+    <div class="frame-inner finale">
+
+        <div class="frame-number">
+            FRAME 004 · SEASON FINALE
+        </div>
+
+        <div class="date">
+            SEASON FINALE · 01
+        </div>
+
+        <h2 class="scene-title">
+            AND IT ENDED.
+        </h2>
+
+        <p class="scene-text">
+
+            Because apparently
+            it wasn't right for us.
+
+            <br><br>
+
+            Things broke a lot of times...
+
+            <br><br>
+
+            but somehow,
+            we found our way back.
+
+        </p>
+
+        <div class="finale-badge">
+            THIS SHOULD HAVE BEEN THE END.
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- 05 — SEASON FINALE 02 -->
+
+<div class="frame flicker">
+
+    <div class="frame-inner finale">
+
+        <div class="scan"></div>
+
+        <div class="frame-number">
+            FRAME 005 · SEASON FINALE
+        </div>
+
+        <div class="date">
+            PLOT TWIST · 03
+        </div>
+
+        <h2 class="scene-title">
+            Again?!
+        </h2>
+
+        <p class="scene-text">
+
+            At this point the universe was
+            genuinely testing the friendship.
+
+            <br><br>
+
+            And somehow...
+
+            <br>
+
+            we still came back.
+
+        </p>
+
+        <div class="finale-badge">
+            FILE CORRUPTED · RECOVERED
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- 06 — SEASON FINALE 03 -->
+
+<div class="frame">
+
+    <div class="frame-inner finale">
+
+        <div class="frame-number">
+            FRAME 006 · SEASON FINALE
+        </div>
+
+        <div class="date">
+            PLOT TWIST · 04
+        </div>
+
+        <h2 class="scene-title">
+            A LOT OF TIMEEESSSSS.
+        </h2>
+
+        <p class="scene-text">
+
+            Yes.
+
+            <br><br>
+
+            The times this friendship
+            looked like it was finished.
+
+            <br><br>
+
+            And yet...
+
+            <br>
+
+            we were always there
+            for each other....
+
+        </p>
+
+        <div class="finale-badge">
+            STATUS: IMPOSSIBLE TO DELETE
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- 07 — SEASON FINALE 04 -->
+
+<div class="frame flicker">
+
+    <div class="frame-inner finale">
+
+        <div class="scan"></div>
+
+        <div class="frame-number">
+            FRAME 007 · SEASON FINALE
+        </div>
+
+        <div class="date">
+            PLOT TWIST · 05
+        </div>
+
+        <h2 class="scene-title">
+            THIS AGAIN?!
+        </h2>
+
+        <p class="scene-text">
+
+            Another ending.
+
+            <br><br>
+
+            This time
+            this friendship has finally reached
+            its last scene.
+
+            <br><br>
+
+            And somehow...
+
+            <br>
+
+           It's over
+
+        </p>
+
+        <div class="finale-badge">
+This is the end
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     08 — CURRENT CHAPTER
+===================================================== -->
+
+<div class="frame">
+
+    <div class="frame-inner current">
+
+        <div class="frame-number">
+            FRAME 008 · CURRENT CUT
+        </div>
+
+        <div class="date teal">
+            CURRENT CHAPTER
+        </div>
+
+        <h2 class="scene-title">
+            It's over...
+        </h2>
+
+        <p class="scene-text">
+
+            Maybe that's the funniest part.
+
+            <br><br>
+
+            After everything,
+            we were still us.
+
+            <br>
+
+            Talking.
+            Together.
+            Enjoying.
+            Annoying each other.
+
+            <br><br>
+
+            <strong>STILLL BFFFF.</strong>
+
+            <br><br>
+
+            But nothing good stays forever...
+
+            lol.
+
+            <br><br>
+
+            Maybe we're not together anymore...
+
+            <br><br>
+
+            but you're still the best part
+            of my life.
+
+            <br><br>
+
+            And I hope I'm the best part
+            of yours.
+
+            <br><br>
+
+            :)
+
+        </p>
+
+        <div class="warning teal">
+            CURRENT STATUS: over.but not really.
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     FINAL FRAME
+===================================================== -->
+
+<div class="final-frame flicker">
+
+    <div class="scan"></div>
+
+    <h2>
+
+        AND SOMEHOW…
+
+        <span>
+            YOU ARE STILL THE BEST PART OF MY LIFE...
+        </span>
+
+    </h2>
+
+</div>
+<!-- =====================================================
+     PAGE 3 BUTTON
+===================================================== -->
+
+<div class="next-wrap">
+
+    <div class="next-note">
+       
+    </div>
+
+    <a href="page3.html" class="next-button">
+        ✦ ROLL THE NEXT REEL →
+    </a>
+
+</div>
+
+
+</section>
+
+
+</main>
+
+
+<script>
+
+/* =====================================================
+   RANDOM FILM FLICKER
+===================================================== */
+
+setInterval(() => {
+
+    const frames =
+        document.querySelectorAll(".frame");
+
+    const random =
+        frames[
+            Math.floor(
+                Math.random() * frames.length
+            )
+        ];
+
+    random.style.filter = "brightness(1.35)";
+
+    setTimeout(() => {
+
+        random.style.filter = "";
+
+    }, 100);
+
+}, 3500);
+
+
+
+/* =====================================================
+   LITTLE FILM DUST
+===================================================== */
+
+function dust() {
+
+    const dot =
+        document.createElement("div");
+
+    dot.style.position = "fixed";
+    dot.style.width = "3px";
+    dot.style.height = "3px";
+    dot.style.background = "#FEE7BC";
+    dot.style.borderRadius = "50%";
+    dot.style.left = Math.random() * 100 + "vw";
+    dot.style.top = Math.random() * 100 + "vh";
+    dot.style.opacity = ".5";
+    dot.style.pointerEvents = "none";
+    dot.style.zIndex = "101";
+
+    document.body.appendChild(dot);
+
+    setTimeout(() => {
+        dot.remove();
+    }, 900);
+
+}
+
+setInterval(dust, 500);
+
+</div>
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1458 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Arnav × Swastika — Next Episode</title>
+
+
+<style>
+
+/* =========================================================
+   MYSTERY COLOUR PALETTE
+========================================================= */
+
+:root {
+
+    --black: #070914;
+    --dark: #0d1122;
+    --panel: #12182d;
+
+    --violet: #7567d9;
+    --purple: #9b8cff;
+
+    --blue: #b9d9ff;
+
+    --red: #d94b68;
+
+    --white: #f1f3ff;
+
+    --grey: #9299b8;
+
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+
+}
+
+
+html {
+
+    scroll-behavior: smooth;
+
+}
+
+
+body {
+
+    min-height: 100vh;
+
+    overflow-x: hidden;
+
+    background: var(--black);
+
+    color: var(--white);
+
+    font-family: "Courier New", monospace;
+
+}
+
+
+/* =========================================================
+   BACKGROUND
+========================================================= */
+
+.background {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: -10;
+
+    overflow: hidden;
+
+    background:
+
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(117,103,217,.18),
+            transparent 35%
+        ),
+
+        radial-gradient(
+            circle at 80% 75%,
+            rgba(155,140,255,.10),
+            transparent 35%
+        ),
+
+        var(--black);
+
+}
+
+
+/* subtle scan lines */
+
+.background::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    opacity: .07;
+
+    background:
+
+        repeating-linear-gradient(
+            0deg,
+            transparent 0px,
+            transparent 4px,
+            white 5px
+        );
+
+    pointer-events: none;
+
+}
+
+
+/* =========================================================
+   GLOW
+========================================================= */
+
+.glow {
+
+    position: absolute;
+
+    border-radius: 50%;
+
+    filter: blur(100px);
+
+    opacity: .18;
+
+}
+
+
+.glow.one {
+
+    width: 300px;
+    height: 300px;
+
+    background: var(--violet);
+
+    top: -100px;
+    left: -100px;
+
+}
+
+
+.glow.two {
+
+    width: 300px;
+    height: 300px;
+
+    background: var(--purple);
+
+    right: -120px;
+    top: 45%;
+
+}
+
+
+.glow.three {
+
+    width: 250px;
+    height: 250px;
+
+    background: var(--red);
+
+    left: 30%;
+    bottom: -130px;
+
+}
+
+
+/* =========================================================
+   TOP BAR
+========================================================= */
+
+.topbar {
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    height: 45px;
+
+    z-index: 50;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 18px;
+
+    background: rgba(13,17,34,.95);
+
+    border-bottom:
+
+        1px solid
+        rgba(155,140,255,.35);
+
+    backdrop-filter: blur(8px);
+
+}
+
+
+.topbar span {
+
+    font-size: 7px;
+
+    letter-spacing: 2px;
+
+}
+
+
+.classified {
+
+    color: var(--red);
+
+    font-weight: bold;
+
+}
+
+
+.case {
+
+    color: var(--blue);
+
+}
+
+
+/* =========================================================
+   FILM STRIP
+========================================================= */
+
+.film {
+
+    position: fixed;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 28px;
+
+    z-index: 40;
+
+    background: var(--violet);
+
+    overflow: hidden;
+
+}
+
+
+.film.top {
+
+    top: 45px;
+
+}
+
+
+.film.bottom {
+
+    bottom: 0;
+
+    background: var(--red);
+
+}
+
+
+.film-track {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    width: max-content;
+
+    height: 100%;
+
+    animation:
+        filmMove 14s linear infinite;
+
+}
+
+
+.bottom-track {
+
+    animation-direction: reverse;
+
+}
+
+
+.hole {
+
+    width: 30px;
+
+    height: 10px;
+
+    background: var(--black);
+
+    border-radius: 2px;
+
+}
+
+
+@keyframes filmMove {
+
+    from {
+
+        transform: translateX(0);
+
+    }
+
+    to {
+
+        transform: translateX(-500px);
+
+    }
+
+}
+
+
+/* =========================================================
+   PAGE
+========================================================= */
+
+.page {
+
+    width: min(850px, 94vw);
+
+    margin: auto;
+
+    padding:
+
+        125px 10px
+        100px;
+
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+
+    text-align: center;
+
+}
+
+
+.case-number {
+
+    display: inline-block;
+
+    padding: 8px 14px;
+
+    border:
+        1px solid
+        var(--purple);
+
+    color: var(--blue);
+
+    font-size: 7px;
+
+    letter-spacing: 3px;
+
+    transform: rotate(-2deg);
+
+}
+
+
+.hero h1 {
+
+    margin-top: 28px;
+
+    font-family: Georgia, serif;
+
+    font-size:
+
+        clamp(
+            55px,
+            13vw,
+            110px
+        );
+
+    line-height: .82;
+
+    font-weight: normal;
+
+    letter-spacing: -6px;
+
+}
+
+
+.hero h1 span {
+
+    color: var(--purple);
+
+}
+
+
+.hero-text {
+
+    max-width: 570px;
+
+    margin:
+
+        30px auto;
+
+    font-family: Georgia, serif;
+
+    font-size: 16px;
+
+    line-height: 1.7;
+
+    color: var(--grey);
+
+}
+
+
+.warning {
+
+    display: inline-block;
+
+    padding: 9px 13px;
+
+    border:
+        1px solid
+        var(--red);
+
+    color: var(--red);
+
+    font-size: 7px;
+
+    letter-spacing: 2px;
+
+}
+
+
+/* =========================================================
+   DIVIDER
+========================================================= */
+
+.divider {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin: 80px 0 30px;
+
+    color: var(--purple);
+
+    font-size: 7px;
+
+    letter-spacing: 3px;
+
+}
+
+
+.divider::before,
+.divider::after {
+
+    content: "";
+
+    flex: 1;
+
+    height: 1px;
+
+    background:
+
+        rgba(155,140,255,.35);
+
+}
+
+
+/* =========================================================
+   CLUE CARDS
+========================================================= */
+
+.clue {
+
+    position: relative;
+
+    margin-top: 20px;
+
+    padding: 25px;
+
+    background:
+
+        rgba(18,24,45,.82);
+
+    border:
+
+        1px solid
+        rgba(155,140,255,.25);
+
+    border-radius: 6px;
+
+    overflow: hidden;
+
+}
+
+
+.clue::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 3px;
+
+    height: 100%;
+
+    background: var(--violet);
+
+}
+
+
+.clue.red::before {
+
+    background: var(--red);
+
+}
+
+
+.clue-number {
+
+    font-size: 7px;
+
+    letter-spacing: 2px;
+
+    color: var(--grey);
+
+}
+
+
+.clue h2 {
+
+    margin-top: 10px;
+
+    font-family: Georgia, serif;
+
+    font-weight: normal;
+
+    font-size: 28px;
+
+    color: var(--blue);
+
+}
+
+
+.clue p {
+
+    margin-top: 12px;
+
+    font-size: 8px;
+
+    line-height: 1.9;
+
+    color: var(--grey);
+
+}
+
+
+/* =========================================================
+   REDACTED
+========================================================= */
+
+.redacted {
+
+    display: inline-block;
+
+    padding: 2px 7px;
+
+    background: var(--white);
+
+    color: var(--white);
+
+}
+
+
+/* =========================================================
+   CASE FILE
+========================================================= */
+
+.file {
+
+    margin-top: 65px;
+
+    padding: 28px;
+
+    background: var(--dark);
+
+    border:
+
+        1px solid
+        rgba(185,217,255,.25);
+
+}
+
+
+.file-top {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    padding-bottom: 15px;
+
+    border-bottom:
+
+        1px dashed
+        rgba(185,217,255,.25);
+
+    font-size: 7px;
+
+    color: var(--grey);
+
+}
+
+
+.file-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap: 12px;
+
+    margin-top: 20px;
+
+}
+
+
+.info {
+
+    padding: 15px;
+
+    border:
+
+        1px solid
+        rgba(117,103,217,.25);
+
+}
+
+
+.info-label {
+
+    font-size: 6px;
+
+    letter-spacing: 2px;
+
+    color: var(--grey);
+
+}
+
+
+.info-value {
+
+    margin-top: 8px;
+
+    font-size: 9px;
+
+    color: var(--blue);
+
+}
+
+
+/* =========================================================
+   NEXT EPISODE
+========================================================= */
+
+.next {
+
+    margin-top: 90px;
+
+    text-align: center;
+
+}
+
+
+.next-label {
+
+    color: var(--red);
+
+    font-size: 7px;
+
+    letter-spacing: 4px;
+
+}
+
+
+.next h2 {
+
+    margin-top: 18px;
+
+    font-family: Georgia, serif;
+
+    font-size:
+
+        clamp(
+            30px,
+            7vw,
+            55px
+        );
+
+    font-weight: normal;
+
+}
+
+
+.next h2 span {
+
+    color: var(--purple);
+
+}
+
+
+.next p {
+
+    max-width: 500px;
+
+    margin: 25px auto;
+
+    font-family: Georgia, serif;
+
+    font-size: 17px;
+
+    line-height: 1.7;
+
+    color: var(--grey);
+
+}
+
+
+/* =========================================================
+   FINAL TEASER
+========================================================= */
+
+.final {
+
+    margin-top: 100px;
+
+    padding: 45px 20px;
+
+    text-align: center;
+
+    border-top:
+
+        1px solid
+        rgba(155,140,255,.3);
+
+    border-bottom:
+
+        1px solid
+        rgba(155,140,255,.3);
+
+}
+
+
+.final-small {
+
+    font-size: 7px;
+
+    letter-spacing: 4px;
+
+    color: var(--grey);
+
+}
+
+
+.final-big {
+
+    margin-top: 20px;
+
+    font-family: Georgia, serif;
+
+    font-size:
+
+        clamp(
+            30px,
+            7vw,
+            55px
+        );
+
+    line-height: 1;
+
+}
+
+
+.final-big span {
+
+    color: var(--red);
+
+}
+
+
+/* =========================================================
+   BUTTON
+========================================================= */
+
+.button-wrap {
+
+    margin-top: 45px;
+
+}
+
+
+.next-button {
+
+    display: inline-block;
+
+    padding: 15px 27px;
+
+    background: transparent;
+
+    color: var(--blue);
+
+    border:
+
+        1px solid
+        var(--purple);
+
+    border-radius: 4px;
+
+    text-decoration: none;
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+
+    font-weight: bold;
+
+    transition: .25s ease;
+
+}
+
+
+.next-button:hover {
+
+    background: var(--violet);
+
+    color: white;
+
+    box-shadow:
+
+        0 0 25px
+        rgba(117,103,217,.4);
+
+    transform:
+
+        translateY(-2px);
+
+}
+
+
+/* =========================================================
+   FLICKER
+========================================================= */
+
+.flicker {
+
+    animation:
+        flicker 5s infinite;
+
+}
+
+
+@keyframes flicker {
+
+    0%, 92%, 100% {
+
+        opacity: 1;
+
+    }
+
+    93% {
+
+        opacity: .6;
+
+    }
+
+    94% {
+
+        opacity: 1;
+
+    }
+
+    96% {
+
+        opacity: .8;
+
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:600px) {
+
+    .topbar span {
+
+        font-size: 6px;
+
+    }
+
+
+    .topbar span:nth-child(2) {
+
+        display: none;
+
+    }
+
+
+    .page {
+
+        padding:
+
+            115px 8px
+            90px;
+
+    }
+
+
+    .hero-text {
+
+        font-size: 14px;
+
+    }
+
+
+    .clue {
+
+        padding: 20px;
+
+    }
+
+
+    .clue h2 {
+
+        font-size: 23px;
+
+    }
+
+
+    .file-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .next p {
+
+        font-size: 15px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     BACKGROUND
+===================================================== -->
+
+<div class="background">
+
+    <div class="glow one"></div>
+
+    <div class="glow two"></div>
+
+    <div class="glow three"></div>
+
+</div>
+
+
+<!-- =====================================================
+     TOP BAR
+===================================================== -->
+
+<div class="topbar">
+
+    <span class="classified">
+        ⚠ CLASSIFIED
+    </span>
+
+    <span>
+        ARNAV × SWASTIKA
+    </span>
+
+    <span class="case">
+        CASE FILE #01
+    </span>
+
+</div>
+
+
+<!-- =====================================================
+     FILM STRIP TOP
+===================================================== -->
+
+<div class="film top">
+
+    <div class="film-track">
+
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     BOTTOM FILM
+===================================================== -->
+
+<div class="film bottom">
+
+    <div class="film-track bottom-track">
+
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+<main class="page">
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero">
+
+
+    <div class="case-number">
+
+        CASE FILE #01 · STATUS: UNKNOWN
+
+    </div>
+
+
+    <h1 class="flicker">
+
+        THE<br>
+
+        <span>MYSTERY</span>
+
+    </h1>
+
+
+    <p class="hero-text">
+
+        You thought the story was over.
+
+        <br><br>
+
+        It wasn't.
+
+        <br><br>
+
+        Somewhere between everything
+        that happened...
+
+        <br>
+
+        something doesn't add up.
+
+    </p>
+
+
+    <div class="warning">
+
+        ⚠ INFORMATION WITHHELD
+
+    </div>
+
+
+</section>
+
+
+<!-- =====================================================
+     EVIDENCE
+===================================================== -->
+
+<section>
+
+
+    <div class="divider">
+
+        EVIDENCE LOG
+
+    </div>
+
+
+    <!-- CLUE 01 -->
+
+    <div class="clue">
+
+        <div class="clue-number">
+
+            CLUE 01 · RECOVERED
+
+        </div>
+
+
+        <h2>
+
+            Something doesn't add up.
+
+        </h2>
+
+
+        <p>
+
+            There are pieces of the story
+            that were never explained.
+
+            <br><br>
+
+            Someone knows more than
+            they're saying.
+
+        </p>
+
+    </div>
+
+
+    <!-- CLUE 02 -->
+
+    <div class="clue">
+
+        <div class="clue-number">
+
+            CLUE 02 · REDACTED
+
+        </div>
+
+
+        <h2>
+
+            The missing conversation.
+
+        </h2>
+
+
+        <p>
+
+            DATE:
+
+            <span class="redacted">
+                █████████
+            </span>
+
+            <br><br>
+
+            LOCATION:
+
+            <span class="redacted">
+                █████████
+            </span>
+
+            <br><br>
+
+            CONTENT:
+
+            <span class="redacted">
+                █████████████████
+            </span>
+
+        </p>
+
+    </div>
+
+
+    <!-- CLUE 03 -->
+
+    <div class="clue red">
+
+        <div class="clue-number">
+
+            CLUE 03 · WARNING
+
+        </div>
+
+
+        <h2>
+
+            Don't trust the obvious answer.
+
+        </h2>
+
+
+        <p>
+
+            The first explanation
+            is rarely the right one.
+
+            <br><br>
+
+            Look closer.
+
+        </p>
+
+    </div>
+
+
+</section>
+
+
+<!-- =====================================================
+     CASE FILE
+===================================================== -->
+
+<section class="file">
+
+
+    <div class="file-top">
+
+        <span>
+            CONFIDENTIAL CASE FILE
+        </span>
+
+        <span>
+            001
+        </span>
+
+    </div>
+
+
+    <div class="file-grid">
+
+
+        <div class="info">
+
+            <div class="info-label">
+                CASE
+            </div>
+
+            <div class="info-value">
+                THE NEXT STORY
+            </div>
+
+        </div>
+
+
+        <div class="info">
+
+            <div class="info-label">
+                STATUS
+            </div>
+
+            <div class="info-value">
+                UNSOLVED
+            </div>
+
+        </div>
+
+
+        <div class="info">
+
+            <div class="info-label">
+                SUSPECTS
+            </div>
+
+            <div class="info-value">
+                ███████
+            </div>
+
+        </div>
+
+
+        <div class="info">
+
+            <div class="info-label">
+                MOTIVE
+            </div>
+
+            <div class="info-value">
+                UNKNOWN
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+<!-- =====================================================
+     NEXT EPISODE
+===================================================== -->
+
+<section class="next">
+
+
+    <div class="next-label">
+
+        NEXT EPISODE
+
+    </div>
+
+
+    <h2>
+
+        EVERY STORY HAS
+
+        <br>
+
+        <span>A SECRET.</span>
+
+    </h2>
+
+
+    <p>
+
+        The question isn't whether
+        there is a mystery.
+
+        <br><br>
+
+        The question is...
+
+        <br><br>
+
+        <strong>
+            Who is hiding it?
+
+        </strong>
+
+    </p>
+
+
+</section>
+
+
+<!-- =====================================================
+     FINAL TEASER
+===================================================== -->
+
+<section class="final">
+
+
+    <div class="final-small">
+
+        TO BE CONTINUED
+
+    </div>
+
+
+    <div class="final-big">
+
+        SOME QUESTIONS
+
+        <br>
+
+        SHOULD HAVE
+
+        <br>
+
+        <span>STAYED HIDDEN.</span>
+
+    </div>
+
+
+    <div class="button-wrap">
+
+        <a
+            href="page11.html"
+            class="next-button"
+        >
+
+            ⟶ ENTER THE LAST PAGE
+
+        </a>
+
+    </div>
+
+
+</section>
+
+
+</main>
+
+
+</body>
+
+</html>

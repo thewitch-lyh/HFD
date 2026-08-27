@@ -1,0 +1,1164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Arnav × Swastika — The End</title>
+
+<style>
+
+/* =========================================================
+   ORIGINAL PALETTE — BACK HOME
+========================================================= */
+
+:root {
+
+    --teal: #4CAFAE;
+    --rose: #CE6385;
+    --pink: #E9B9B4;
+    --blush: #F8D0D0;
+    --peach: #FCCF90;
+    --cream: #FEE7BC;
+
+    --dark: #4a3840;
+
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+
+}
+
+
+html {
+
+    scroll-behavior: smooth;
+
+}
+
+
+body {
+
+    min-height: 100vh;
+
+    overflow-x: hidden;
+
+    background: var(--cream);
+
+    color: var(--dark);
+
+    font-family: "Courier New", monospace;
+
+}
+
+
+/* =========================================================
+   TRANSITION SCREEN
+========================================================= */
+
+.transition {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 100;
+
+    background: var(--dark);
+
+    pointer-events: none;
+
+    animation: opening 0.5s ease forwards;
+
+}
+
+
+@keyframes opening {
+
+    0% {
+
+        opacity: 1;
+
+    }
+
+    65% {
+
+        opacity: 1;
+
+    }
+
+    100% {
+
+        opacity: 0;
+
+    }
+
+}
+
+
+/* =========================================================
+   BACKGROUND
+========================================================= */
+
+.background {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: -10;
+
+    overflow: hidden;
+
+    background: var(--cream);
+
+}
+
+
+/* BIG SOFT BLOBS */
+
+.blob {
+
+    position: absolute;
+
+    border-radius: 50%;
+
+    filter: blur(3px);
+
+    opacity: .75;
+
+}
+
+
+.blob.one {
+
+    width: 430px;
+    height: 430px;
+
+    background: var(--blush);
+
+    top: -180px;
+    left: -130px;
+
+}
+
+
+.blob.two {
+
+    width: 360px;
+    height: 360px;
+
+    background: var(--pink);
+
+    right: -120px;
+    top: 15%;
+
+}
+
+
+.blob.three {
+
+    width: 400px;
+    height: 400px;
+
+    background: var(--peach);
+
+    left: -150px;
+    bottom: -190px;
+
+}
+
+
+.blob.four {
+
+    width: 330px;
+    height: 330px;
+
+    background: var(--teal);
+
+    right: -130px;
+    bottom: -150px;
+
+    opacity: .3;
+
+}
+
+
+/* =========================================================
+   FILM STRIP
+========================================================= */
+
+.film {
+
+    position: fixed;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 38px;
+
+    z-index: 40;
+
+    background: var(--teal);
+
+    border-bottom:
+
+        3px solid
+        var(--dark);
+
+    overflow: hidden;
+
+}
+
+
+.film.bottom {
+
+    top: auto;
+
+    bottom: 0;
+
+    background: var(--rose);
+
+    border-top:
+
+        3px solid
+        var(--dark);
+
+    border-bottom: none;
+
+}
+
+
+.film-track {
+
+    width: max-content;
+
+    height: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    animation:
+        filmMove 14s linear infinite;
+
+}
+
+
+.bottom-track {
+
+    animation-direction: reverse;
+
+}
+
+
+.hole {
+
+    width: 30px;
+
+    height: 11px;
+
+    background: var(--cream);
+
+    border-radius: 3px;
+
+}
+
+
+@keyframes filmMove {
+
+    from {
+
+        transform:
+            translateX(0);
+
+    }
+
+    to {
+
+        transform:
+            translateX(-500px);
+
+    }
+
+}
+
+
+/* =========================================================
+   PAGE
+========================================================= */
+
+.page {
+
+    min-height: 100vh;
+
+    padding:
+
+        80px 15px
+        90px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+
+/* =========================================================
+   MAIN CARD
+========================================================= */
+
+.card {
+
+    width: min(760px, 94vw);
+
+    padding:
+
+        55px 30px
+        65px;
+
+    text-align: center;
+
+    background: rgba(255,248,233,.82);
+
+    border:
+
+        3px solid
+        var(--dark);
+
+    border-radius: 25px;
+
+    box-shadow:
+
+        10px 12px 0
+        var(--rose),
+
+        18px 20px 0
+        var(--teal);
+
+    opacity: 0;
+
+    transform:
+        translateY(25px);
+
+    animation:
+
+        cardAppear 1.2s ease forwards;
+
+    animation-delay: 1.4s;
+
+}
+
+
+@keyframes cardAppear {
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+/* =========================================================
+   LITTLE LABEL
+========================================================= */
+
+.label {
+
+    display: inline-block;
+
+    padding:
+
+        9px 15px;
+
+    background: var(--peach);
+
+    border:
+
+        2px solid
+        var(--dark);
+
+    border-radius: 25px;
+
+    font-size: 7px;
+
+    letter-spacing: 2px;
+
+    font-weight: bold;
+
+    transform:
+        rotate(-2deg);
+
+    box-shadow:
+
+        3px 3px 0
+        var(--rose);
+
+}
+
+
+/* =========================================================
+   END
+========================================================= */
+
+.end {
+
+    margin-top: 35px;
+
+    font-size: 8px;
+
+    letter-spacing: 4px;
+
+    color: var(--teal);
+
+}
+
+
+h1 {
+
+    margin-top: 18px;
+
+    font-family: Georgia, serif;
+
+    font-size:
+
+        clamp(
+            60px,
+            14vw,
+            110px
+        );
+
+    line-height: .8;
+
+    font-weight: normal;
+
+    letter-spacing: -6px;
+
+    color: var(--rose);
+
+    text-shadow:
+
+        3px 3px 0
+        var(--blush);
+
+    animation:
+
+        gentleFloat 4s ease-in-out infinite;
+
+}
+
+
+@keyframes gentleFloat {
+
+    0%,100% {
+
+        transform:
+            rotate(-2deg)
+            translateY(0);
+
+    }
+
+    50% {
+
+        transform:
+            rotate(-1deg)
+            translateY(-5px);
+
+    }
+
+}
+
+
+/* =========================================================
+   GOODBYE TEXT
+========================================================= */
+
+.goodbye {
+
+    max-width: 520px;
+
+    margin:
+
+        30px auto 0;
+
+    font-family: Georgia, serif;
+
+    font-size: 16px;
+
+    line-height: 1.8;
+
+    color: #67535b;
+
+}
+
+
+.goodbye strong {
+
+    color: var(--rose);
+
+}
+
+
+/* =========================================================
+   CAST
+========================================================= */
+
+.cast {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-top: 30px;
+
+}
+
+
+.person {
+
+    padding:
+
+        9px 15px;
+
+    border:
+
+        2px solid
+        var(--dark);
+
+    border-radius: 10px;
+
+    background: var(--blush);
+
+    font-size: 8px;
+
+    letter-spacing: 1.5px;
+
+    box-shadow:
+
+        3px 3px 0
+        var(--pink);
+
+}
+
+
+.person:last-child {
+
+    background: var(--pink);
+
+    box-shadow:
+
+        3px 3px 0
+        var(--peach);
+
+}
+
+
+.x {
+
+    font-family: Georgia, serif;
+
+    font-size: 20px;
+
+    color: var(--rose);
+
+}
+
+
+/* =========================================================
+   DIVIDER
+========================================================= */
+
+.divider {
+
+    width: 130px;
+
+    height: 2px;
+
+    margin:
+
+        35px auto;
+
+    background: var(--rose);
+
+}
+
+
+/* =========================================================
+   FINAL MESSAGE
+========================================================= */
+
+.message {
+
+    font-family: Georgia, serif;
+
+    font-size: 20px;
+
+    line-height: 1.6;
+
+    color: var(--dark);
+
+}
+
+
+.message span {
+
+    color: var(--teal);
+
+}
+
+
+/* =========================================================
+   LITTLE MOVING HEART
+========================================================= */
+
+.heart {
+
+    margin-top: 25px;
+
+    font-size: 25px;
+
+    color: var(--rose);
+
+    display: inline-block;
+
+    animation:
+
+        heartbeat 1.6s ease-in-out infinite;
+
+}
+
+
+@keyframes heartbeat {
+
+    0%,100% {
+
+        transform:
+            scale(1);
+
+    }
+
+    50% {
+
+        transform:
+            scale(1.18);
+
+    }
+
+}
+
+
+/* =========================================================
+   LAST LINE
+========================================================= */
+
+.last-line {
+
+    margin-top: 40px;
+
+    font-size: 7px;
+
+    line-height: 1.8;
+
+    letter-spacing: 2px;
+
+    color: #806b73;
+
+}
+
+
+.last-line span {
+
+    color: var(--rose);
+
+}
+
+
+/* =========================================================
+   FILM END
+========================================================= */
+
+.film-end {
+
+    margin-top: 35px;
+
+    font-size: 7px;
+
+    letter-spacing: 3px;
+
+    color: var(--teal);
+
+}
+
+
+/* =========================================================
+   REPLAY BUTTON
+========================================================= */
+
+.replay {
+
+    display: inline-block;
+
+    margin-top: 30px;
+
+    padding:
+
+        13px 22px;
+
+    border:
+
+        2px solid
+        var(--dark);
+
+    border-radius: 10px;
+
+    background: var(--rose);
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+
+    font-weight: bold;
+
+    box-shadow:
+
+        4px 4px 0
+        var(--teal);
+
+    transition: .2s ease;
+
+}
+
+
+.replay:hover {
+
+    transform:
+        translate(3px,3px);
+
+    background: var(--teal);
+
+    box-shadow:
+
+        2px 2px 0
+        var(--rose);
+
+}
+
+
+/* =========================================================
+   FLOATING DECOR
+========================================================= */
+
+.decor {
+
+    position: fixed;
+
+    z-index: 5;
+
+    pointer-events: none;
+
+    font-size: 25px;
+
+    animation:
+        float 4s ease-in-out infinite;
+
+}
+
+
+.decor.one {
+
+    top: 18%;
+
+    left: 8%;
+
+    color: var(--rose);
+
+}
+
+
+.decor.two {
+
+    top: 25%;
+
+    right: 8%;
+
+    color: var(--teal);
+
+    animation-delay: 1s;
+
+}
+
+
+.decor.three {
+
+    bottom: 20%;
+
+    left: 10%;
+
+    color: var(--peach);
+
+    animation-delay: .5s;
+
+}
+
+
+.decor.four {
+
+    bottom: 18%;
+
+    right: 9%;
+
+    color: var(--rose);
+
+    animation-delay: 1.5s;
+
+}
+
+
+@keyframes float {
+
+    0%,100% {
+
+        transform:
+            translateY(0)
+            rotate(-5deg);
+
+    }
+
+    50% {
+
+        transform:
+            translateY(-9px)
+            rotate(5deg);
+
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:600px) {
+
+    .page {
+
+        padding:
+
+            70px 12px
+            80px;
+
+    }
+
+
+    .card {
+
+        padding:
+
+            45px 18px
+            50px;
+
+    }
+
+
+    .goodbye {
+
+        font-size: 14px;
+
+    }
+
+
+    .message {
+
+        font-size: 18px;
+
+    }
+
+
+    .decor {
+
+        font-size: 19px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     TRANSITION
+===================================================== -->
+
+<div class="transition"></div>
+
+
+<!-- =====================================================
+     BACKGROUND
+===================================================== -->
+
+<div class="background">
+
+    <div class="blob one"></div>
+
+    <div class="blob two"></div>
+
+    <div class="blob three"></div>
+
+    <div class="blob four"></div>
+
+</div>
+
+
+<!-- =====================================================
+     DECOR
+===================================================== -->
+
+<div class="decor one">
+    ✦
+</div>
+
+<div class="decor two">
+    ✿
+</div>
+
+<div class="decor three">
+    ♥
+</div>
+
+<div class="decor four">
+    ✦
+</div>
+
+
+<!-- =====================================================
+     TOP FILM
+===================================================== -->
+
+<div class="film">
+
+    <div class="film-track">
+
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     BOTTOM FILM
+===================================================== -->
+
+<div class="film bottom">
+
+    <div class="film-track bottom-track">
+
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     PAGE
+===================================================== -->
+
+<main class="page">
+
+
+<div class="card">
+
+
+    <div class="label">
+
+        🎞️ END OF THIS LITTLE FILM
+
+    </div>
+
+
+    <div class="end">
+
+        AND... CUT.
+
+    </div>
+
+
+    <h1>
+
+        goodbye.
+
+    </h1>
+
+
+    <p class="goodbye">
+
+        And that's where we leave this little film.
+
+        <br><br>
+
+        Not because every story has a perfect ending...
+
+        <br>
+
+        but because sometimes you just
+        <strong>pause the movie</strong>
+        and let the memories stay.
+
+    </p>
+
+
+    <!-- CAST -->
+
+    <div class="cast">
+
+        <div class="person">
+            ARNAV
+        </div>
+
+        <div class="x">
+            ×
+        </div>
+
+        <div class="person">
+            SWASTIKA
+        </div>
+
+    </div>
+
+
+    <div class="divider"></div>
+
+
+    <!-- FINAL MESSAGE -->
+
+    <div class="message">
+
+        Thank you for being
+
+        <br>
+
+        a part of my story.
+
+        <br><br>
+
+        <span>
+            And thank you for making
+            it worth remembering.
+        </span>
+
+    </div>
+
+
+    <div class="heart">
+
+        ♥
+
+    </div>
+
+
+    <!-- LAST LINE -->
+
+    <div class="last-line">
+
+        THE FILM MAY END.
+
+        <br>
+
+        THE MEMORIES DON'T.
+
+        <br><br>
+
+        <span>
+            ARNAV × SWASTIKA
+        </span>
+
+    </div>
+
+
+    <div class="film-end">
+
+        ★ FIN ★
+
+    </div>
+
+
+    <!-- OPTIONAL REPLAY -->
+
+    <a
+        href="index.html"
+        class="replay"
+    >
+
+        ↺ WATCH FROM THE BEGINNING
+
+    </a>
+
+
+</div>
+
+
+</main>
+
+
+</body>
+
+</html>

@@ -1,0 +1,1151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Arnav × Swastika — Our Little Film</title>
+
+<style>
+
+/* =========================================
+   PALETTE
+=========================================
+
+   TEAL      #4CAFAE
+   ROSE      #CE6385
+   PINK      #E9B9B4
+   BLUSH     #F8D0D0
+   PEACH     #FCCF90
+   CREAM     #FEE7BC
+
+========================================= */
+
+
+/* =========================================
+   RESET
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =========================================
+   BODY
+========================================= */
+
+body {
+
+    min-height: 100vh;
+
+    overflow: hidden;
+
+    background: #FEE7BC;
+
+    color: #4a3840;
+
+    font-family: "Courier New", monospace;
+}
+
+
+/* =========================================
+   BACKGROUND
+========================================= */
+
+.background {
+
+    position: fixed;
+
+    inset: 0;
+
+    overflow: hidden;
+
+    z-index: 0;
+}
+
+
+/* BIG COLOR BLOBS */
+
+.blob {
+
+    position: absolute;
+
+    border-radius: 50%;
+
+    filter: blur(2px);
+
+    opacity: .8;
+}
+
+.blob.one {
+
+    width: 420px;
+    height: 420px;
+
+    background: #F8D0D0;
+
+    top: -180px;
+    left: -120px;
+}
+
+.blob.two {
+
+    width: 360px;
+    height: 360px;
+
+    background: #E9B9B4;
+
+    right: -130px;
+    top: 30px;
+}
+
+.blob.three {
+
+    width: 400px;
+    height: 400px;
+
+    background: #FCCF90;
+
+    left: -160px;
+    bottom: -180px;
+}
+
+.blob.four {
+
+    width: 320px;
+    height: 320px;
+
+    background: #4CAFAE;
+
+    right: -140px;
+    bottom: -130px;
+
+    opacity: .35;
+}
+
+
+/* =========================================
+   FLOATING DECORATIONS
+========================================= */
+
+.decor {
+
+    position: fixed;
+
+    z-index: 2;
+
+    user-select: none;
+
+    pointer-events: none;
+
+    animation: bob 4s ease-in-out infinite;
+}
+
+.star {
+
+    color: #CE6385;
+
+    font-size: 28px;
+}
+
+.flower {
+
+    color: #4CAFAE;
+
+    font-size: 27px;
+}
+
+.heart {
+
+    color: #CE6385;
+
+    font-size: 25px;
+}
+
+.sparkle {
+
+    color: #FCCF90;
+
+    font-size: 30px;
+
+    -webkit-text-stroke: 1px #CE6385;
+}
+
+
+.decor.a {
+
+    top: 8%;
+    left: 8%;
+
+    transform: rotate(-15deg);
+}
+
+.decor.b {
+
+    top: 13%;
+    right: 8%;
+
+    animation-delay: 1s;
+
+    transform: rotate(12deg);
+}
+
+.decor.c {
+
+    bottom: 15%;
+    left: 8%;
+
+    animation-delay: 1.7s;
+}
+
+.decor.d {
+
+    bottom: 11%;
+    right: 9%;
+
+    animation-delay: .5s;
+}
+
+@keyframes bob {
+
+    0%, 100% {
+        translate: 0 0;
+    }
+
+    50% {
+        translate: 0 -9px;
+    }
+}
+
+
+/* =========================================
+   CONFETTI
+========================================= */
+
+.confetti {
+
+    position: fixed;
+
+    top: -20px;
+
+    width: 8px;
+    height: 13px;
+
+    z-index: 50;
+
+    pointer-events: none;
+
+    animation: fall linear forwards;
+}
+
+@keyframes fall {
+
+    from {
+        transform:
+            translateY(-20px)
+            rotate(0deg);
+        opacity: 1;
+    }
+
+    to {
+        transform:
+            translateY(110vh)
+            rotate(720deg);
+        opacity: 0;
+    }
+}
+
+
+/* =========================================
+   PAGE
+========================================= */
+
+.page {
+
+    position: relative;
+
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 25px;
+
+    z-index: 5;
+}
+
+
+/* =========================================
+   MAIN CARD
+========================================= */
+
+.card {
+
+    position: relative;
+
+    width: min(850px, 94vw);
+
+    min-height: 570px;
+
+    background: #fff8e9;
+
+    border: 3px solid #4a3840;
+
+    border-radius: 25px;
+
+    box-shadow:
+        10px 12px 0 #CE6385,
+        18px 20px 0 #4CAFAE;
+
+    overflow: hidden;
+}
+
+
+/* =========================================
+   TOP FILM STRIP
+========================================= */
+
+.film-strip {
+
+    height: 45px;
+
+    background: #4CAFAE;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 18px;
+
+    color: #fff8e9;
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+
+    border-bottom: 3px solid #4a3840;
+}
+
+
+.holes {
+
+    display: flex;
+
+    gap: 13px;
+
+    align-items: center;
+}
+
+
+.hole {
+
+    width: 19px;
+
+    height: 10px;
+
+    border-radius: 3px;
+
+    background: #FEE7BC;
+}
+
+
+/* =========================================
+   CONTENT
+========================================= */
+
+.content {
+
+    min-height: 525px;
+
+    padding: 45px 25px 50px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+}
+
+
+/* =========================================
+   LITTLE LABEL
+========================================= */
+
+.label {
+
+    display: inline-block;
+
+    padding: 9px 15px;
+
+    background: #FCCF90;
+
+    border: 2px solid #4a3840;
+
+    border-radius: 30px;
+
+    color: #4a3840;
+
+    font-size: 8px;
+
+    letter-spacing: 1.5px;
+
+    font-weight: bold;
+
+    transform: rotate(-2deg);
+
+    box-shadow: 3px 3px 0 #CE6385;
+
+    margin-bottom: 25px;
+}
+
+
+/* =========================================
+   TITLE
+========================================= */
+
+.small-title {
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+    color: #4CAFAE;
+
+    font-weight: bold;
+
+    margin-bottom: 9px;
+}
+
+
+h1 {
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-weight: normal;
+
+    font-size: clamp(65px, 13vw, 115px);
+
+    line-height: .8;
+
+    color: #CE6385;
+
+    letter-spacing: -5px;
+
+    transform: rotate(-2deg);
+
+    margin-bottom: 25px;
+
+    text-shadow:
+        3px 3px 0 #F8D0D0;
+}
+
+
+h1 span {
+
+    display: block;
+
+    font-size: .32em;
+
+    letter-spacing: 1px;
+
+    color: #4a3840;
+
+    margin-top: 18px;
+
+    transform: rotate(2deg);
+}
+
+
+/* =========================================
+   INTRO
+========================================= */
+
+.intro {
+
+    max-width: 500px;
+
+    font-family: Georgia, serif;
+
+    font-size: 15px;
+
+    line-height: 1.7;
+
+    color: #67535b;
+
+    margin-bottom: 25px;
+}
+
+
+/* =========================================
+   CAST
+========================================= */
+
+.cast {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-bottom: 28px;
+}
+
+
+.name {
+
+    padding: 9px 15px;
+
+    border: 2px solid #4a3840;
+
+    border-radius: 10px;
+
+    background: #F8D0D0;
+
+    color: #4a3840;
+
+    font-size: 8px;
+
+    letter-spacing: 1.5px;
+
+    box-shadow: 3px 3px 0 #E9B9B4;
+}
+
+
+.name:last-child {
+
+    background: #E9B9B4;
+
+    box-shadow: 3px 3px 0 #FCCF90;
+}
+
+
+.plus {
+
+    color: #CE6385;
+
+    font-family: Georgia, serif;
+
+    font-size: 20px;
+
+    font-weight: bold;
+}
+
+
+/* =========================================
+   START BUTTON
+========================================= */
+
+.enter {
+
+    position: relative;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    padding: 15px 28px;
+
+    background: #CE6385;
+
+    border: 2px solid #4a3840;
+
+    border-radius: 12px;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    font-weight: bold;
+
+    box-shadow:
+        5px 5px 0 #4CAFAE;
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease;
+}
+
+
+.enter:hover {
+
+    transform:
+        translate(3px, 3px)
+        rotate(-1deg);
+
+    box-shadow:
+        2px 2px 0 #4CAFAE;
+
+    background: #4CAFAE;
+}
+
+
+/* =========================================
+   MINI STICKERS
+========================================= */
+
+.sticker {
+
+    position: absolute;
+
+    padding: 9px 12px;
+
+    border: 2px solid #4a3840;
+
+    border-radius: 9px;
+
+    background: #fff8e9;
+
+    font-size: 8px;
+
+    font-weight: bold;
+
+    box-shadow: 3px 3px 0 #4a3840;
+
+    z-index: 10;
+}
+
+
+.sticker.one {
+
+    top: 82px;
+    left: 45px;
+
+    background: #F8D0D0;
+
+    transform: rotate(-8deg);
+}
+
+
+.sticker.two {
+
+    top: 90px;
+    right: 45px;
+
+    background: #FCCF90;
+
+    transform: rotate(7deg);
+}
+
+
+.sticker.three {
+
+    bottom: 55px;
+    left: 50px;
+
+    background: #4CAFAE;
+
+    color: white;
+
+    transform: rotate(5deg);
+}
+
+
+.sticker.four {
+
+    bottom: 55px;
+    right: 50px;
+
+    background: #E9B9B4;
+
+    transform: rotate(-6deg);
+}
+
+
+/* =========================================
+   CAMERA FLASH
+========================================= */
+
+.flash {
+
+    position: fixed;
+
+    inset: 0;
+
+    background: white;
+
+    z-index: 100;
+
+    pointer-events: none;
+
+    opacity: 0;
+}
+
+
+.flash.active {
+
+    animation: cameraFlash .45s ease;
+}
+
+
+@keyframes cameraFlash {
+
+    0% {
+        opacity: .9;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+
+/* =========================================
+   BOTTOM STRIP
+========================================= */
+
+.bottom {
+
+    height: 35px;
+
+    background: #CE6385;
+
+    border-top: 3px solid #4a3840;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: white;
+
+    font-size: 7px;
+
+    letter-spacing: 3px;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    body {
+        overflow: auto;
+    }
+
+    .page {
+        padding: 18px 12px;
+    }
+
+    .card {
+
+        min-height: 650px;
+
+        box-shadow:
+            6px 7px 0 #CE6385,
+            11px 13px 0 #4CAFAE;
+    }
+
+    .content {
+
+        min-height: 570px;
+
+        padding:
+            65px
+            18px
+            50px;
+    }
+
+    h1 {
+
+        font-size: 72px;
+
+        letter-spacing: -3px;
+    }
+
+    .intro {
+        font-size: 14px;
+    }
+
+    .sticker.one {
+        left: 12px;
+    }
+
+    .sticker.two {
+        right: 12px;
+    }
+
+    .sticker.three {
+        left: 18px;
+    }
+
+    .sticker.four {
+        right: 18px;
+    }
+
+    .decor.a {
+        left: 3%;
+    }
+
+    .decor.b {
+        right: 3%;
+    }
+
+}
+
+
+/* =========================================
+   VERY SMALL SCREEN
+========================================= */
+
+@media (max-height: 650px) {
+
+    body {
+        overflow: auto;
+    }
+
+    .card {
+        margin: 15px 0;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================
+     BACKGROUND
+========================================= -->
+
+<div class="background">
+
+    <div class="blob one"></div>
+    <div class="blob two"></div>
+    <div class="blob three"></div>
+    <div class="blob four"></div>
+
+</div>
+
+
+<!-- =========================================
+     FLOATING DECOR
+========================================= -->
+
+<div class="decor star a">✦</div>
+
+<div class="decor flower b">✿</div>
+
+<div class="decor heart c">♥</div>
+
+<div class="decor sparkle d">✦</div>
+
+
+<!-- FLASH -->
+
+<div class="flash" id="flash"></div>
+
+
+<!-- =========================================
+     PAGE
+========================================= -->
+
+<div class="page">
+
+
+<div class="card">
+
+
+<!-- =========================================
+     TOP FILM STRIP
+========================================= -->
+
+<div class="film-strip">
+
+    <div class="holes">
+
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+
+    </div>
+
+
+    <span>
+        FRIENDSHIP DAY · SPECIAL EDITION
+    </span>
+
+
+    <div class="holes">
+
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================
+     STICKERS
+========================================= -->
+
+<div class="sticker one">
+    🎬 ROLL IT
+</div>
+
+<div class="sticker two">
+    ⚠️ CHAOS AHEAD
+</div>
+
+<div class="sticker three">
+    EST. 2024
+</div>
+
+<div class="sticker four">
+    ★ BFF FILE
+</div>
+
+
+<!-- =========================================
+     CONTENT
+========================================= -->
+
+<div class="content">
+
+
+<div class="label">
+
+    ✦ OUR LITTLE FILM ✦
+
+</div>
+
+
+<div class="small-title">
+
+    WELCOME TO THE
+
+</div>
+
+
+<h1>
+
+    film.
+
+    <span>
+        starring us, unfortunately. ♡
+    </span>
+
+</h1>
+
+
+<p class="intro">
+
+    One random meeting.
+    <br>
+
+    A ridiculous amount of memories.
+    <br>
+
+    And somehow... an entire movie.
+
+</p>
+
+
+<!-- CAST -->
+
+<div class="cast">
+
+    <div class="name">
+        ARNAV
+    </div>
+
+    <div class="plus">
+        ×
+    </div>
+
+    <div class="name">
+        YUNHE
+    </div>
+
+</div>
+
+
+<!-- BUTTON -->
+
+<a
+    href="page2.html"
+    class="enter"
+    id="enterButton"
+>
+
+    🎞 START THE FILM →
+
+</a>
+
+
+</div>
+
+
+<!-- =========================================
+     BOTTOM
+========================================= -->
+
+<div class="bottom">
+
+    ARNAV × YUNHE · A VERY QUESTIONABLE PRODUCTION
+
+</div>
+
+
+</div>
+
+</div>
+
+
+<script>
+
+/* =========================================
+   CONFETTI
+========================================= */
+
+function createConfetti(amount = 50) {
+
+    const symbols = [
+        "✦",
+        "★",
+        "♥",
+        "✿",
+        "●"
+    ];
+
+    const colors = [
+        "#4CAFAE",
+        "#CE6385",
+        "#E9B9B4",
+        "#F8D0D0",
+        "#FCCF90"
+    ];
+
+    for (let i = 0; i < amount; i++) {
+
+        const piece =
+            document.createElement("div");
+
+        piece.className = "confetti";
+
+        piece.innerHTML =
+            symbols[
+                Math.floor(
+                    Math.random() * symbols.length
+                )
+            ];
+
+        piece.style.color =
+            colors[
+                Math.floor(
+                    Math.random() * colors.length
+                )
+            ];
+
+        piece.style.left =
+            Math.random() * 100 + "vw";
+
+        piece.style.fontSize =
+            (8 + Math.random() * 9) + "px";
+
+        piece.style.animationDuration =
+            (2.5 + Math.random() * 3) + "s";
+
+        piece.style.animationDelay =
+            Math.random() * 1.2 + "s";
+
+        document.body.appendChild(piece);
+
+
+        setTimeout(() => {
+
+            piece.remove();
+
+        }, 6000);
+
+    }
+
+}
+
+
+/* =========================================
+   OPENING CONFETTI
+========================================= */
+
+window.addEventListener("load", () => {
+
+    setTimeout(() => {
+
+        createConfetti(65);
+
+    }, 300);
+
+});
+
+
+/* =========================================
+   BUTTON
+========================================= */
+
+document
+    .getElementById("enterButton")
+    .addEventListener("click", function() {
+
+        createConfetti(45);
+
+        document
+            .getElementById("flash")
+            .classList.add("active");
+
+    });
+
+
+/* =========================================
+   RANDOM CONFETTI BURSTS
+========================================= */
+
+setInterval(() => {
+
+    if (Math.random() > .45) {
+
+        createConfetti(6);
+
+    }
+
+}, 5000);
+
+</script>
+
+
+</body>
+
+</html>

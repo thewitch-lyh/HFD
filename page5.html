@@ -1,0 +1,1836 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Arnav × Swastika — Friendship Quiz</title>
+
+<style>
+
+/* =====================================================
+   ORIGINAL PALETTE
+===================================================== */
+
+:root {
+    --teal: #4CAFAE;
+    --rose: #CE6385;
+    --pink: #E9B9B4;
+    --blush: #F8D0D0;
+    --peach: #FCCF90;
+    --cream: #FEE7BC;
+    --dark: #4a3840;
+    --white: #fff8e9;
+}
+
+
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =====================================================
+   BODY
+===================================================== */
+
+body {
+
+    min-height: 100vh;
+
+    overflow-x: hidden;
+
+    background: var(--cream);
+
+    color: var(--dark);
+
+    font-family: "Courier New", monospace;
+
+}
+
+
+/* =====================================================
+   BACKGROUND
+===================================================== */
+
+.background {
+
+    position: fixed;
+
+    inset: 0;
+
+    overflow: hidden;
+
+    z-index: -2;
+
+}
+
+
+.blob {
+
+    position: absolute;
+
+    border-radius: 50%;
+
+    filter: blur(3px);
+
+}
+
+
+.blob.one {
+
+    width: 350px;
+    height: 350px;
+
+    background: var(--blush);
+
+    top: -150px;
+    left: -100px;
+
+    opacity: .8;
+
+}
+
+
+.blob.two {
+
+    width: 300px;
+    height: 300px;
+
+    background: var(--pink);
+
+    top: 100px;
+    right: -100px;
+
+    opacity: .75;
+
+}
+
+
+.blob.three {
+
+    width: 300px;
+    height: 300px;
+
+    background: var(--peach);
+
+    bottom: -150px;
+    left: -100px;
+
+    opacity: .8;
+
+}
+
+
+.blob.four {
+
+    width: 280px;
+    height: 280px;
+
+    background: var(--teal);
+
+    right: -100px;
+    bottom: -100px;
+
+    opacity: .3;
+
+}
+
+
+/* =====================================================
+   MOVING FILM STRIPS
+===================================================== */
+
+.film-strip {
+
+    position: fixed;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 38px;
+
+    z-index: 20;
+
+    display: flex;
+
+    align-items: center;
+
+    overflow: hidden;
+
+    border-color: var(--dark);
+
+}
+
+
+.film-strip.top {
+
+    top: 0;
+
+    background: var(--teal);
+
+    border-bottom: 3px solid var(--dark);
+
+}
+
+
+.film-strip.bottom {
+
+    bottom: 0;
+
+    background: var(--rose);
+
+    border-top: 3px solid var(--dark);
+
+}
+
+
+.film-track {
+
+    display: flex;
+
+    gap: 9px;
+
+    width: max-content;
+
+    animation: filmMove 12s linear infinite;
+
+}
+
+
+.bottom-track {
+
+    animation-direction: reverse;
+
+}
+
+
+.hole {
+
+    width: 26px;
+
+    height: 12px;
+
+    flex-shrink: 0;
+
+    background: var(--cream);
+
+    border-radius: 3px;
+
+}
+
+
+@keyframes filmMove {
+
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-400px);
+    }
+
+}
+
+
+/* =====================================================
+   PAGE
+===================================================== */
+
+.page {
+
+    min-height: 100vh;
+
+    padding: 65px 15px;
+
+    display: flex;
+
+    justify-content: center;
+
+}
+
+
+/* =====================================================
+   CARD
+===================================================== */
+
+.card {
+
+    width: min(720px, 95vw);
+
+    background: var(--white);
+
+    border: 3px solid var(--dark);
+
+    border-radius: 20px;
+
+    box-shadow:
+
+        8px 9px 0 var(--rose),
+
+        14px 15px 0 var(--teal);
+
+    overflow: hidden;
+
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.header {
+
+    height: 40px;
+
+    background: var(--dark);
+
+    color: var(--cream);
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 0 13px;
+
+    font-size: 7px;
+
+    letter-spacing: 1.5px;
+
+}
+
+
+.holes {
+
+    display: flex;
+
+    gap: 6px;
+
+}
+
+
+.card-hole {
+
+    width: 15px;
+
+    height: 7px;
+
+    background: var(--cream);
+
+    border-radius: 2px;
+
+}
+
+
+/* =====================================================
+   CONTENT
+===================================================== */
+
+.content {
+
+    padding: 30px 25px 40px;
+
+    text-align: center;
+
+}
+
+
+/* =====================================================
+   LABEL
+===================================================== */
+
+.label {
+
+    display: inline-block;
+
+    padding: 7px 13px;
+
+    background: var(--peach);
+
+    border: 2px solid var(--dark);
+
+    border-radius: 20px;
+
+    box-shadow: 3px 3px 0 var(--rose);
+
+    font-size: 7px;
+
+    font-weight: bold;
+
+    letter-spacing: 1.5px;
+
+    transform: rotate(-2deg);
+
+}
+
+
+/* =====================================================
+   TITLE
+===================================================== */
+
+.small-title {
+
+    margin-top: 20px;
+
+    color: var(--teal);
+
+    font-size: 8px;
+
+    font-weight: bold;
+
+    letter-spacing: 3px;
+
+}
+
+
+h1 {
+
+    margin-top: 7px;
+
+    font-family: Georgia, serif;
+
+    font-weight: normal;
+
+    color: var(--rose);
+
+    font-size: clamp(45px, 9vw, 75px);
+
+    line-height: .85;
+
+    letter-spacing: -3px;
+
+    text-shadow:
+
+        3px 3px 0 var(--blush);
+
+    transform: rotate(-2deg);
+
+}
+
+
+.intro {
+
+    max-width: 470px;
+
+    margin: 15px auto 20px;
+
+    font-family: Georgia, serif;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+
+    color: #67535b;
+
+}
+
+
+/* =====================================================
+   QUIZ TOP BAR
+===================================================== */
+
+.quiz-top {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin: 15px auto;
+
+    max-width: 560px;
+
+}
+
+
+.progress {
+
+    font-size: 7px;
+
+    letter-spacing: 1px;
+
+    font-weight: bold;
+
+    color: var(--teal);
+
+}
+
+
+.score {
+
+    padding: 6px 10px;
+
+    background: var(--blush);
+
+    border: 2px solid var(--dark);
+
+    box-shadow: 2px 2px 0 var(--dark);
+
+    font-size: 7px;
+
+    font-weight: bold;
+
+}
+
+
+/* =====================================================
+   QUESTION BOX
+===================================================== */
+
+.question-box {
+
+    max-width: 560px;
+
+    margin: auto;
+
+    padding: 22px 18px 20px;
+
+    background: var(--cream);
+
+    border: 3px solid var(--dark);
+
+    box-shadow: 5px 5px 0 var(--teal);
+
+    transform: rotate(.5deg);
+
+}
+
+
+.question-number {
+
+    color: var(--rose);
+
+    font-size: 7px;
+
+    letter-spacing: 2px;
+
+    font-weight: bold;
+
+    margin-bottom: 10px;
+
+}
+
+
+.question {
+
+    font-family: Georgia, serif;
+
+    font-size: clamp(20px, 4vw, 27px);
+
+    line-height: 1.2;
+
+    color: var(--dark);
+
+}
+
+
+/* =====================================================
+   ANSWERS
+===================================================== */
+
+.answers {
+
+    max-width: 560px;
+
+    margin: 18px auto 0;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 10px;
+
+}
+
+
+.answer {
+
+    padding: 13px 10px;
+
+    background: var(--white);
+
+    border: 2px solid var(--dark);
+
+    border-radius: 9px;
+
+    box-shadow: 3px 3px 0 var(--dark);
+
+    font-family: "Courier New", monospace;
+
+    font-size: 8px;
+
+    font-weight: bold;
+
+    color: var(--dark);
+
+    cursor: pointer;
+
+    transition: .18s ease;
+
+}
+
+
+.answer:hover {
+
+    transform:
+        translate(-2px,-2px)
+        rotate(-1deg);
+
+    background: var(--peach);
+
+    box-shadow: 5px 5px 0 var(--rose);
+
+}
+
+
+.answer.correct {
+
+    background: var(--teal);
+
+    color: white;
+
+    transform: translate(2px,2px);
+
+    box-shadow: none;
+
+}
+
+
+.answer.wrong {
+
+    background: var(--rose);
+
+    color: white;
+
+    transform: rotate(2deg);
+
+}
+
+
+.answer.disabled {
+
+    pointer-events: none;
+
+}
+
+
+/* =====================================================
+   REACTION
+===================================================== */
+
+.reaction {
+
+    min-height: 27px;
+
+    margin-top: 14px;
+
+    font-size: 8px;
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+
+}
+
+
+.reaction.good {
+
+    color: var(--teal);
+
+    animation: pop .35s ease;
+
+}
+
+
+.reaction.bad {
+
+    color: var(--rose);
+
+    animation: shake .35s ease;
+
+}
+
+
+@keyframes pop {
+
+    0% {
+        transform: scale(.7);
+    }
+
+    70% {
+        transform: scale(1.12);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+
+}
+
+
+@keyframes shake {
+
+    0%,100% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-6px);
+    }
+
+    75% {
+        transform: translateX(6px);
+    }
+
+}
+
+
+/* =====================================================
+   NEXT QUESTION
+===================================================== */
+
+.next-question {
+
+    display: none;
+
+    margin: 8px auto 0;
+
+    padding: 10px 18px;
+
+    background: var(--teal);
+
+    color: white;
+
+    border: 2px solid var(--dark);
+
+    border-radius: 9px;
+
+    box-shadow: 4px 4px 0 var(--rose);
+
+    font-family: "Courier New", monospace;
+
+    font-size: 7px;
+
+    font-weight: bold;
+
+    letter-spacing: 1.5px;
+
+    cursor: pointer;
+
+}
+
+
+.next-question.show {
+
+    display: inline-block;
+
+    animation: pop .3s ease;
+
+}
+
+
+/* =====================================================
+   RESULT
+===================================================== */
+
+.result {
+
+    display: none;
+
+    max-width: 560px;
+
+    margin: 20px auto 0;
+
+    padding: 25px 18px;
+
+    background: var(--blush);
+
+    border: 3px solid var(--dark);
+
+    box-shadow:
+
+        5px 5px 0 var(--teal);
+
+    animation: resultIn .5s ease;
+
+}
+
+
+.result.show {
+
+    display: block;
+
+}
+
+
+@keyframes resultIn {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            scale(.8)
+            rotate(-3deg);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            scale(1)
+            rotate(0);
+
+    }
+
+}
+
+
+.result-small {
+
+    color: var(--teal);
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+
+    font-weight: bold;
+
+}
+
+
+.result h2 {
+
+    margin: 8px 0;
+
+    font-family: Georgia, serif;
+
+    color: var(--rose);
+
+    font-size: 38px;
+
+    font-weight: normal;
+
+}
+
+
+.result p {
+
+    font-family: Georgia, serif;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+
+}
+
+
+/* =====================================================
+   CONTINUE BUTTON
+===================================================== */
+
+.continue {
+
+    display: none;
+
+    margin-top: 22px;
+
+    padding: 13px 21px;
+
+    background: var(--rose);
+
+    color: white;
+
+    text-decoration: none;
+
+    border: 2px solid var(--dark);
+
+    border-radius: 10px;
+
+    box-shadow: 4px 4px 0 var(--teal);
+
+    font-size: 7px;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+}
+
+
+.continue.show {
+
+    display: inline-block;
+
+}
+
+
+.continue:hover {
+
+    transform:
+        translate(2px,2px);
+
+    background: var(--teal);
+
+}
+
+
+/* =====================================================
+   CONFETTI
+===================================================== */
+
+.confetti {
+
+    position: fixed;
+
+    top: -20px;
+
+    z-index: 100;
+
+    pointer-events: none;
+
+    animation: fall linear forwards;
+
+}
+
+
+@keyframes fall {
+
+    from {
+
+        transform:
+            translateY(-20px)
+            rotate(0deg);
+
+        opacity: 1;
+
+    }
+
+    to {
+
+        transform:
+            translateY(110vh)
+            rotate(600deg);
+
+        opacity: 0;
+
+    }
+
+}
+
+
+/* =====================================================
+   PAGE TRANSITION
+===================================================== */
+
+.transition {
+
+    position: fixed;
+
+    inset: 0;
+
+    background: var(--teal);
+
+    z-index: 999;
+
+    transform: translateY(100%);
+
+    pointer-events: none;
+
+}
+
+
+.transition.active {
+
+    animation: wipe .7s ease forwards;
+
+}
+
+
+@keyframes wipe {
+
+    to {
+        transform: translateY(0);
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:600px) {
+
+    .page {
+
+        padding: 55px 10px;
+
+    }
+
+
+    .content {
+
+        padding:
+            25px
+            12px
+            35px;
+
+    }
+
+
+    h1 {
+
+        font-size: 52px;
+
+    }
+
+
+    .answers {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .answer {
+
+        padding: 12px;
+
+    }
+
+
+    .question-box {
+
+        padding: 19px 14px;
+
+    }
+
+
+    .quiz-top {
+
+        margin-top: 20px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     BACKGROUND
+===================================================== -->
+
+<div class="background">
+
+    <div class="blob one"></div>
+
+    <div class="blob two"></div>
+
+    <div class="blob three"></div>
+
+    <div class="blob four"></div>
+
+</div>
+
+
+<!-- =====================================================
+     TOP FILM
+===================================================== -->
+
+<div class="film-strip top">
+
+    <div class="film-track">
+
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     BOTTOM FILM
+===================================================== -->
+
+<div class="film-strip bottom">
+
+    <div class="film-track bottom-track">
+
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     TRANSITION
+===================================================== -->
+
+<div
+    class="transition"
+    id="transition">
+</div>
+
+
+<!-- =====================================================
+     PAGE
+===================================================== -->
+
+<div class="page">
+
+
+<div class="card">
+
+
+    <!-- HEADER -->
+
+    <div class="header">
+
+        <div class="holes">
+
+            <div class="card-hole"></div>
+            <div class="card-hole"></div>
+            <div class="card-hole"></div>
+
+        </div>
+
+
+        <span>
+            ARNAV × YUNHE · REEL 05
+        </span>
+
+
+        <div class="holes">
+
+            <div class="card-hole"></div>
+            <div class="card-hole"></div>
+            <div class="card-hole"></div>
+
+        </div>
+
+    </div>
+
+
+    <!-- CONTENT -->
+
+    <div class="content">
+
+
+        <div class="label">
+
+            🎬 AUDITION TIME
+
+        </div>
+
+
+        <div class="small-title">
+
+            HOW WELL DO YOU KNOW US?
+
+        </div>
+
+
+        <h1>
+
+            prove<br>
+            it.
+
+        </h1>
+
+
+        <p class="intro">
+
+            Let's see if you were actually paying attention
+            to this ridiculously questionable movie.
+
+        </p>
+
+
+        <!-- QUIZ -->
+
+        <div id="quiz">
+
+
+            <div class="quiz-top">
+
+                <div
+                    class="progress"
+                    id="progress">
+                    QUESTION 1 / 6
+                </div>
+
+
+                <div
+                    class="score"
+                    id="score">
+                    SCORE: 0
+                </div>
+
+            </div>
+
+
+            <div class="question-box">
+
+                <div
+                    class="question-number"
+                    id="questionNumber">
+                    SCENE 01
+                </div>
+
+
+                <div
+                    class="question"
+                    id="question">
+                </div>
+
+            </div>
+
+
+            <div
+                class="answers"
+                id="answers">
+            </div>
+
+
+            <div
+                class="reaction"
+                id="reaction">
+            </div>
+
+
+            <button
+                class="next-question"
+                id="nextQuestion">
+
+                NEXT SCENE →
+
+            </button>
+
+
+        </div>
+
+
+        <!-- RESULT -->
+
+        <div
+            class="result"
+            id="result">
+
+            <div class="result-small">
+
+                FINAL CUT · FRIENDSHIP TEST
+
+            </div>
+
+
+            <h2 id="resultTitle">
+                BFF CERTIFIED.
+            </h2>
+
+
+            <p id="resultText">
+            </p>
+
+        </div>
+
+
+        <!-- CONTINUE -->
+
+        <a
+            href="page6.html"
+            class="continue"
+            id="continueButton">
+
+            🎞 CONTINUE THE FILM →
+
+        </a>
+
+
+    </div>
+
+</div>
+
+</div>
+
+
+<script>
+
+/* =====================================================
+   QUESTIONS
+===================================================== */
+
+const questions = [
+
+    {
+        question:
+            "Where did this whole disaster begin?",
+
+        answers: [
+
+            "Discord",
+
+            "School",
+
+            "Instagram",
+
+            "Somewhere mysterious"
+
+        ],
+
+        correct: 0
+
+    },
+
+
+    {
+        question:
+            "What were we originally calling each other?",
+
+        answers: [
+
+            "Besties",
+
+            "Brother & Sister",
+
+            "Enemies",
+
+            "Strangers"
+
+        ],
+
+        correct: 1
+
+    },
+
+
+    {
+        question:
+            "How many times did this friendship basically end?",
+
+        answers: [
+
+            "1",
+
+            "2",
+
+            "3",
+
+            "FOUR + 💀"
+
+        ],
+
+        correct: 3
+
+    },
+
+
+    {
+        question:
+            "What happened after the brother & sister era?",
+
+        answers: [
+
+            "We disappeared",
+
+            "We became enemies",
+
+            "Someone caught feelings 💀",
+
+            "Nothing happened"
+
+        ],
+
+        correct: 2
+
+    },
+
+
+    {
+        question:
+            "What keeps happening somehow?",
+
+        answers: [
+
+            "We disappear forever",
+
+            "We find our way back",
+
+            "We become normal",
+
+            "We stop annoying each other"
+
+        ],
+
+        correct: 1
+
+    },
+
+
+    {
+        question:
+            "Current status?",
+
+        answers: [
+
+            "Archived",
+
+            "Deleted",
+
+            "IDK",
+
+            "COMPLICATED"
+
+        ],
+
+        correct: 3
+
+    }
+
+];
+
+
+/* =====================================================
+   VARIABLES
+===================================================== */
+
+let currentQuestion = 0;
+
+let score = 0;
+
+let answered = false;
+
+
+/* =====================================================
+   ELEMENTS
+===================================================== */
+
+const question =
+    document.getElementById("question");
+
+const answers =
+    document.getElementById("answers");
+
+const reaction =
+    document.getElementById("reaction");
+
+const progress =
+    document.getElementById("progress");
+
+const scoreDisplay =
+    document.getElementById("score");
+
+const questionNumber =
+    document.getElementById("questionNumber");
+
+const nextButton =
+    document.getElementById("nextQuestion");
+
+const quiz =
+    document.getElementById("quiz");
+
+const result =
+    document.getElementById("result");
+
+const resultTitle =
+    document.getElementById("resultTitle");
+
+const resultText =
+    document.getElementById("resultText");
+
+const continueButton =
+    document.getElementById("continueButton");
+
+
+/* =====================================================
+   LOAD QUESTION
+===================================================== */
+
+function loadQuestion() {
+
+    answered = false;
+
+    nextButton.classList.remove("show");
+
+    reaction.textContent = "";
+
+    reaction.className = "reaction";
+
+
+    const q =
+        questions[currentQuestion];
+
+
+    progress.textContent =
+        `QUESTION ${currentQuestion + 1} / ${questions.length}`;
+
+
+    questionNumber.textContent =
+        `SCENE ${String(currentQuestion + 1).padStart(2,"0")}`;
+
+
+    question.textContent =
+        q.question;
+
+
+    answers.innerHTML = "";
+
+
+    q.answers.forEach(
+        (answer,index) => {
+
+            const button =
+                document.createElement("button");
+
+
+            button.className =
+                "answer";
+
+
+            button.textContent =
+                answer;
+
+
+            button.addEventListener(
+                "click",
+                () => checkAnswer(
+                    index,
+                    button
+                )
+            );
+
+
+            answers.appendChild(button);
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   CHECK ANSWER
+===================================================== */
+
+function checkAnswer(index,button) {
+
+    if(answered) return;
+
+    answered = true;
+
+
+    const correct =
+        questions[currentQuestion].correct;
+
+
+    const allButtons =
+        document.querySelectorAll(".answer");
+
+
+    allButtons.forEach(
+        btn => btn.classList.add("disabled")
+    );
+
+
+    if(index === correct) {
+
+        score++;
+
+        button.classList.add("correct");
+
+        reaction.textContent =
+            "✦ CUT! THAT'S RIGHT. YOU ACTUALLY KNOW US.";
+
+        reaction.classList.add("good");
+
+        createConfetti(18);
+
+    }
+
+    else {
+
+        button.classList.add("wrong");
+
+        allButtons[correct]
+            .classList.add("correct");
+
+        reaction.textContent =
+            "💀 BRO... DID YOU EVEN WATCH THE MOVIE?";
+
+        reaction.classList.add("bad");
+
+    }
+
+
+    scoreDisplay.textContent =
+        `SCORE: ${score}`;
+
+
+    if(currentQuestion <
+        questions.length - 1) {
+
+        nextButton.classList.add("show");
+
+    }
+
+    else {
+
+        setTimeout(
+            showResult,
+            700
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   NEXT QUESTION
+===================================================== */
+
+nextButton.addEventListener(
+    "click",
+    () => {
+
+        currentQuestion++;
+
+        loadQuestion();
+
+    }
+);
+
+
+/* =====================================================
+   RESULT
+===================================================== */
+
+function showResult() {
+
+    quiz.style.display = "none";
+
+    result.classList.add("show");
+
+    continueButton.classList.add("show");
+
+
+    if(score === 6) {
+
+        resultTitle.textContent =
+            "BFF CERTIFIED. 🏆";
+
+        resultText.textContent =
+            "6 / 6. Okay WOW. You clearly survived every single season finale.";
+
+    }
+
+    else if(score >= 4) {
+
+        resultTitle.textContent =
+            "BFF MATERIAL. ✦";
+
+        resultText.textContent =
+            `${score} / 6. You know us suspiciously well. I'm impressed.`;
+
+    }
+
+    else if(score >= 2) {
+
+        resultTitle.textContent =
+            "QUESTIONABLE BFF. 💀";
+
+        resultText.textContent =
+            `${score} / 6. Bro... go rewatch the movie.`;
+
+    }
+
+    else {
+
+        resultTitle.textContent =
+            "WHO ARE YOU?! 😭";
+
+        resultText.textContent =
+            `${score} / 6. This friendship deserves a documentary apparently.`;
+
+    }
+
+}
+
+
+/* =====================================================
+   CONFETTI
+===================================================== */
+
+function createConfetti(amount) {
+
+    const symbols = [
+        "✦",
+        "★",
+        "♥",
+        "✿",
+        "●"
+    ];
+
+
+    const colors = [
+
+        "#4CAFAE",
+        "#CE6385",
+        "#E9B9B4",
+        "#F8D0D0",
+        "#FCCF90"
+
+    ];
+
+
+    for(
+        let i = 0;
+        i < amount;
+        i++
+    ) {
+
+        const piece =
+            document.createElement("div");
+
+
+        piece.className =
+            "confetti";
+
+
+        piece.textContent =
+            symbols[
+                Math.floor(
+                    Math.random()
+                    * symbols.length
+                )
+            ];
+
+
+        piece.style.color =
+            colors[
+                Math.floor(
+                    Math.random()
+                    * colors.length
+                )
+            ];
+
+
+        piece.style.left =
+            Math.random() * 100 + "vw";
+
+
+        piece.style.fontSize =
+            (8 + Math.random() * 10) + "px";
+
+
+        piece.style.animationDuration =
+            (2 + Math.random() * 2.5) + "s";
+
+
+        document.body.appendChild(piece);
+
+
+        setTimeout(
+            () => piece.remove(),
+            5000
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   PAGE TRANSITION
+===================================================== */
+
+const transition =
+    document.getElementById("transition");
+
+
+continueButton.addEventListener(
+    "click",
+    function(event) {
+
+        event.preventDefault();
+
+
+        transition.classList.add(
+            "active"
+        );
+
+
+        setTimeout(
+            () => {
+
+                window.location.href =
+                    continueButton.href;
+
+            },
+            650
+        );
+
+    }
+);
+
+
+/* =====================================================
+   START
+===================================================== */
+
+loadQuestion();
+
+</script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,1850 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Arnav × Swastika — Reel 03</title>
+
+<style>
+
+/* =====================================================
+   COLOURS
+===================================================== */
+
+:root {
+    --teal: #4CAFAE;
+    --rose: #CE6385;
+    --pink: #E9B9B4;
+    --blush: #F8D0D0;
+    --peach: #FCCF90;
+    --cream: #FEE7BC;
+    --paper: #FFFDF5;
+    --ink: #292329;
+}
+
+
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =====================================================
+   BODY
+===================================================== */
+
+body {
+
+    min-height: 100vh;
+
+    overflow: hidden;
+
+    background: var(--ink);
+
+    font-family: "Courier New", monospace;
+
+    color: var(--cream);
+
+}
+
+
+/* =====================================================
+   BACKGROUND
+===================================================== */
+
+.background {
+
+    position: fixed;
+
+    inset: 0;
+
+    overflow: hidden;
+
+    z-index: 0;
+
+}
+
+
+/* COLOUR BLOBS */
+
+.blob {
+
+    position: absolute;
+
+    border-radius: 50%;
+
+}
+
+
+.blob.one {
+
+    width: 430px;
+    height: 430px;
+
+    background: var(--rose);
+
+    top: -230px;
+    left: -150px;
+
+}
+
+
+.blob.two {
+
+    width: 380px;
+    height: 380px;
+
+    background: var(--teal);
+
+    top: 20%;
+    right: -190px;
+
+}
+
+
+.blob.three {
+
+    width: 320px;
+    height: 320px;
+
+    background: var(--peach);
+
+    bottom: -180px;
+    left: 10%;
+
+}
+
+
+.blob.four {
+
+    width: 280px;
+    height: 280px;
+
+    background: var(--pink);
+
+    bottom: -130px;
+    right: 15%;
+
+}
+
+
+/* =====================================================
+   FILM STRIPS
+===================================================== */
+
+.film {
+
+    position: fixed;
+
+    left: -5%;
+
+    width: 110%;
+
+    height: 38px;
+
+    background: var(--rose);
+
+    border-top: 3px solid var(--ink);
+
+    border-bottom: 3px solid var(--ink);
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    z-index: 5;
+
+    overflow: hidden;
+
+}
+
+
+.film.top {
+
+    top: 0;
+
+    transform: rotate(-1deg);
+
+}
+
+
+.film.bottom {
+
+    bottom: 0;
+
+    background: var(--teal);
+
+    transform: rotate(1deg);
+
+}
+
+
+.hole {
+
+    flex-shrink: 0;
+
+    width: 25px;
+
+    height: 14px;
+
+    background: var(--ink);
+
+    border-radius: 3px;
+
+}
+
+
+/* =====================================================
+   FLOATING DECOR
+===================================================== */
+
+.decor {
+
+    position: fixed;
+
+    z-index: 8;
+
+    pointer-events: none;
+
+    animation: float 4s ease-in-out infinite;
+
+}
+
+
+.d1 {
+
+    top: 13%;
+
+    left: 7%;
+
+    color: var(--peach);
+
+    font-size: 32px;
+
+}
+
+
+.d2 {
+
+    top: 24%;
+
+    right: 7%;
+
+    color: var(--pink);
+
+    font-size: 28px;
+
+    animation-delay: .8s;
+
+}
+
+
+.d3 {
+
+    bottom: 17%;
+
+    left: 7%;
+
+    color: var(--rose);
+
+    font-size: 27px;
+
+    animation-delay: 1.2s;
+
+}
+
+
+.d4 {
+
+    bottom: 20%;
+
+    right: 7%;
+
+    color: var(--teal);
+
+    font-size: 32px;
+
+    animation-delay: .5s;
+
+}
+
+
+@keyframes float {
+
+    0%,100% {
+        transform: translateY(0) rotate(0);
+    }
+
+    50% {
+        transform: translateY(-12px) rotate(8deg);
+    }
+
+}
+
+
+/* =====================================================
+   MAIN
+===================================================== */
+
+main {
+
+    position: relative;
+
+    z-index: 10;
+
+    height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 55px 20px;
+
+}
+
+
+/* =====================================================
+   MAIN BOARD
+===================================================== */
+
+.board {
+
+    position: relative;
+
+    width: min(850px, 94vw);
+
+    min-height: 570px;
+
+    background: var(--cream);
+
+    border: 4px solid var(--ink);
+
+    color: var(--ink);
+
+    box-shadow:
+        10px 10px 0 var(--rose),
+        18px 18px 0 var(--teal);
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 40px;
+
+}
+
+
+/* =====================================================
+   TAPE
+===================================================== */
+
+.tape {
+
+    position: absolute;
+
+    width: 100px;
+
+    height: 27px;
+
+    background: var(--pink);
+
+    opacity: .9;
+
+}
+
+
+.tape.one {
+
+    top: -12px;
+
+    left: 45px;
+
+    transform: rotate(-6deg);
+
+}
+
+
+.tape.two {
+
+    bottom: -12px;
+
+    right: 45px;
+
+    transform: rotate(6deg);
+
+}
+
+
+/* =====================================================
+   LABELS
+===================================================== */
+
+.reel {
+
+    position: absolute;
+
+    top: 24px;
+
+    left: 25px;
+
+    background: var(--rose);
+
+    color: white;
+
+    border: 2px solid var(--ink);
+
+    padding: 8px 12px;
+
+    font-size: 8px;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+    transform: rotate(-3deg);
+
+}
+
+
+.warning {
+
+    position: absolute;
+
+    top: 24px;
+
+    right: 25px;
+
+    background: var(--peach);
+
+    border: 2px solid var(--ink);
+
+    padding: 8px 11px;
+
+    font-size: 7px;
+
+    font-weight: bold;
+
+    transform: rotate(4deg);
+
+}
+
+
+/* =====================================================
+   TITLE
+===================================================== */
+
+.title {
+
+    text-align: center;
+
+    margin-bottom: 10px;
+
+}
+
+
+.small {
+
+    color: var(--teal);
+
+    font-size: 8px;
+
+    font-weight: bold;
+
+    letter-spacing: 4px;
+
+}
+
+
+.title h1 {
+
+    font-family: Georgia, serif;
+
+    font-size: clamp(52px, 9vw, 88px);
+
+    line-height: .9;
+
+    font-weight: normal;
+
+    color: var(--rose);
+
+    letter-spacing: -5px;
+
+    transform: rotate(-2deg);
+
+    text-shadow: 4px 4px 0 var(--pink);
+
+}
+
+
+.subtitle {
+
+    margin-top: 12px;
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+
+}
+
+
+/* =====================================================
+   ENVELOPE
+===================================================== */
+
+.envelope-stage {
+
+    position: relative;
+
+    width: 360px;
+
+    height: 245px;
+
+    margin-top: 5px;
+
+    transition: .7s ease;
+
+}
+
+
+.envelope-stage.gone {
+
+    opacity: 0;
+
+    transform:
+        translateY(50px)
+        scale(.7);
+
+    pointer-events: none;
+
+}
+
+
+/* ENVELOPE BODY */
+
+.envelope {
+
+    position: absolute;
+
+    bottom: 0;
+
+    left: 0;
+
+    width: 360px;
+
+    height: 195px;
+
+    background: var(--rose);
+
+    border: 4px solid var(--ink);
+
+    box-shadow: 9px 9px 0 var(--teal);
+
+}
+
+
+/* FRONT */
+
+.front {
+
+    position: absolute;
+
+    inset: 0;
+
+    background: var(--blush);
+
+    clip-path:
+        polygon(
+            0 0,
+            50% 52%,
+            100% 0,
+            100% 100%,
+            0 100%
+        );
+
+    z-index: 5;
+
+}
+
+
+/* FLAP */
+
+.flap {
+
+    position: absolute;
+
+    top: -4px;
+
+    left: -4px;
+
+    width: calc(100% + 8px);
+
+    height: 140px;
+
+    background: var(--peach);
+
+    border: 4px solid var(--ink);
+
+    clip-path:
+        polygon(
+            0 0,
+            100% 0,
+            50% 75%
+        );
+
+    transform-origin: top center;
+
+    transition:
+        transform .8s cubic-bezier(.2,.8,.2,1);
+
+    z-index: 8;
+
+}
+
+
+.envelope-stage.open .flap {
+
+    transform: rotateX(180deg);
+
+}
+
+
+/* =====================================================
+   SEAL
+===================================================== */
+
+.seal {
+
+    position: absolute;
+
+    z-index: 10;
+
+    top: 78px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 62px;
+
+    height: 62px;
+
+    border-radius: 50%;
+
+    background: var(--teal);
+
+    border: 3px solid var(--ink);
+
+    box-shadow: 4px 4px 0 var(--ink);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 25px;
+
+    transition: .3s;
+
+}
+
+
+.envelope-stage.open .seal {
+
+    opacity: 0;
+
+    transform:
+        translateX(-50%)
+        scale(.4);
+
+}
+
+
+/* =====================================================
+   OPEN BUTTON
+===================================================== */
+
+.open-button {
+
+    position: absolute;
+
+    bottom: -38px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    background: var(--rose);
+
+    color: white;
+
+    border: 3px solid var(--ink);
+
+    box-shadow: 5px 5px 0 var(--ink);
+
+    padding: 13px 25px;
+
+    font-family: "Courier New", monospace;
+
+    font-size: 9px;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    white-space: nowrap;
+
+    z-index: 20;
+
+}
+
+
+.open-button:hover {
+
+    background: var(--teal);
+
+    color: var(--ink);
+
+    transform:
+        translateX(-48%)
+        translateY(3px);
+
+}
+
+
+.open-button.hide {
+
+    opacity: 0;
+
+    pointer-events: none;
+
+}
+
+
+/* =====================================================
+   STICKERS
+===================================================== */
+
+.sticker {
+
+    position: absolute;
+
+    padding: 8px 11px;
+
+    border: 2px solid var(--ink);
+
+    box-shadow: 3px 3px 0 var(--ink);
+
+    font-size: 7px;
+
+    font-weight: bold;
+
+}
+
+
+.s1 {
+
+    left: 20px;
+
+    bottom: 100px;
+
+    background: var(--teal);
+
+    transform: rotate(-8deg);
+
+}
+
+
+.s2 {
+
+    right: 20px;
+
+    bottom: 110px;
+
+    background: var(--pink);
+
+    transform: rotate(7deg);
+
+}
+
+
+.s3 {
+
+    left: 45px;
+
+    bottom: 28px;
+
+    background: var(--peach);
+
+    transform: rotate(4deg);
+
+}
+
+
+.s4 {
+
+    right: 45px;
+
+    bottom: 30px;
+
+    background: var(--rose);
+
+    color: white;
+
+    transform: rotate(-5deg);
+
+}
+
+
+/* =====================================================
+   LETTER SCREEN
+===================================================== */
+
+.letter-screen {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 100;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 45px 20px;
+
+    background:
+
+        radial-gradient(
+            circle at 8% 15%,
+            var(--rose) 0 75px,
+            transparent 77px
+        ),
+
+        radial-gradient(
+            circle at 92% 18%,
+            var(--teal) 0 95px,
+            transparent 97px
+        ),
+
+        radial-gradient(
+            circle at 12% 90%,
+            var(--peach) 0 80px,
+            transparent 82px
+        ),
+
+        radial-gradient(
+            circle at 90% 88%,
+            var(--pink) 0 100px,
+            transparent 102px
+        ),
+
+        var(--ink);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transform: scale(.94);
+
+    transition:
+        opacity .6s ease,
+        transform .6s ease;
+
+}
+
+
+.letter-screen.show {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+
+    transform: scale(1);
+
+}
+
+
+/* =====================================================
+   LETTER WRAPPER
+===================================================== */
+
+.letter-wrapper {
+
+    width: min(760px, 94vw);
+
+    height: min(82vh, 720px);
+
+    display: flex;
+
+    flex-direction: column;
+
+}
+
+
+/* =====================================================
+   LETTER TOP
+===================================================== */
+
+.letter-top {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-bottom: 12px;
+
+}
+
+
+.letter-reel {
+
+    color: var(--peach);
+
+    font-size: 8px;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+}
+
+
+.letter-warning {
+
+    background: var(--rose);
+
+    color: white;
+
+    border: 2px solid var(--ink);
+
+    padding: 6px 9px;
+
+    font-size: 7px;
+
+    transform: rotate(2deg);
+
+}
+
+
+/* =====================================================
+   PAPER
+===================================================== */
+
+.letter {
+
+    flex: 1;
+
+    min-height: 0;
+
+    overflow-y: auto;
+
+    background: var(--paper);
+
+    color: var(--ink);
+
+    border: 4px solid var(--ink);
+
+    box-shadow:
+        10px 10px 0 var(--rose),
+        18px 18px 0 var(--teal);
+
+    padding: 45px 55px;
+
+}
+
+
+/* SCROLLBAR */
+
+.letter::-webkit-scrollbar {
+
+    width: 10px;
+
+}
+
+
+.letter::-webkit-scrollbar-track {
+
+    background: var(--pink);
+
+}
+
+
+.letter::-webkit-scrollbar-thumb {
+
+    background: var(--teal);
+
+    border: 2px solid var(--ink);
+
+}
+
+
+/* =====================================================
+   LETTER HEADER
+===================================================== */
+
+.letter-header {
+
+    padding-bottom: 20px;
+
+    margin-bottom: 25px;
+
+    border-bottom: 2px dashed var(--rose);
+
+}
+
+
+.to {
+
+    color: var(--rose);
+
+    font-size: 8px;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+}
+
+
+.letter h2 {
+
+    margin-top: 10px;
+
+    font-family: Georgia, serif;
+
+    font-size: clamp(30px, 5vw, 46px);
+
+    font-weight: normal;
+
+    color: var(--teal);
+
+}
+
+
+.letter-date {
+
+    margin-top: 8px;
+
+    font-size: 7px;
+
+    color: #77676e;
+
+}
+
+
+/* =====================================================
+   LETTER BODY
+===================================================== */
+
+.letter-body {
+
+    font-family: Georgia, serif;
+
+    font-size: 16px;
+
+    line-height: 1.85;
+
+}
+
+
+.letter-body p {
+
+    margin-bottom: 22px;
+
+}
+
+
+.signature {
+
+    margin-top: 40px;
+
+    color: var(--rose);
+
+    font-family: Georgia, serif;
+
+    font-size: 24px;
+
+}
+
+
+.signature small {
+
+    display: block;
+
+    margin-top: 6px;
+
+    color: var(--ink);
+
+    font-family: "Courier New", monospace;
+
+    font-size: 7px;
+
+    letter-spacing: 1px;
+
+}
+
+
+/* =====================================================
+   NEXT BUTTON
+===================================================== */
+
+.continue {
+
+    text-align: center;
+
+    margin-top: 17px;
+
+}
+
+
+.continue a {
+
+    display: inline-block;
+
+    background: var(--rose);
+
+    color: white;
+
+    border: 3px solid var(--cream);
+
+    box-shadow: 5px 5px 0 var(--teal);
+
+    padding: 12px 23px;
+
+    text-decoration: none;
+
+    font-size: 8px;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+}
+
+
+.continue a:hover {
+
+    background: var(--teal);
+
+    color: var(--ink);
+
+}
+
+
+/* =====================================================
+   CONFETTI
+===================================================== */
+
+.confetti {
+
+    position: fixed;
+
+    top: -20px;
+
+    z-index: 500;
+
+    pointer-events: none;
+
+    animation: fall linear forwards;
+
+}
+
+
+@keyframes fall {
+
+    from {
+
+        transform:
+            translateY(-20px)
+            rotate(0deg);
+
+        opacity: 1;
+
+    }
+
+    to {
+
+        transform:
+            translateY(110vh)
+            rotate(720deg);
+
+        opacity: 0;
+
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+    main {
+
+        padding: 45px 12px;
+
+    }
+
+
+    .board {
+
+        min-height: 520px;
+
+        padding: 25px 12px;
+
+    }
+
+
+    .warning {
+
+        display: none;
+
+    }
+
+
+    .reel {
+
+        left: 15px;
+
+        top: 15px;
+
+    }
+
+
+    .title {
+
+        margin-top: 25px;
+
+    }
+
+
+    .title h1 {
+
+        font-size: 55px;
+
+    }
+
+
+    .envelope-stage {
+
+        transform: scale(.78);
+
+        margin-top: -5px;
+
+    }
+
+
+    .sticker {
+
+        display: none;
+
+    }
+
+
+    .letter-screen {
+
+        padding: 25px 10px;
+
+    }
+
+
+    .letter-wrapper {
+
+        width: 94vw;
+
+        height: 87vh;
+
+    }
+
+
+    .letter {
+
+        padding: 30px 22px;
+
+        box-shadow:
+            6px 6px 0 var(--rose),
+            11px 11px 0 var(--teal);
+
+    }
+
+
+    .letter-body {
+
+        font-size: 15px;
+
+        line-height: 1.75;
+
+    }
+
+
+    .letter-warning {
+
+        display: none;
+
+    }
+
+
+    .decor {
+
+        display: none;
+
+    }
+
+}
+
+
+/* =====================================================
+   SMALL HEIGHT
+===================================================== */
+
+@media (max-height: 650px) {
+
+    .board {
+
+        min-height: 500px;
+
+    }
+
+
+    .title h1 {
+
+        font-size: 52px;
+
+    }
+
+
+    .envelope-stage {
+
+        transform: scale(.68);
+
+        margin-top: -15px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     BACKGROUND
+===================================================== -->
+
+<div class="background">
+
+    <div class="blob one"></div>
+
+    <div class="blob two"></div>
+
+    <div class="blob three"></div>
+
+    <div class="blob four"></div>
+
+</div>
+
+
+<!-- =====================================================
+     FILM STRIPS
+===================================================== -->
+
+<div class="film top">
+
+    <div class="hole"></div>
+    <div class="hole"></div>
+    <div class="hole"></div>
+    <div class="hole"></div>
+    <div class="hole"></div>
+    <div class="hole"></div>
+    <div class="hole"></div>
+    <div class="hole"></div>
+    <div class="hole"></div>
+    <div class="hole"></div>
+    <div class="hole"></div>
+    <div class="hole"></div>
+    <div class="hole"></div>
+    <div class="hole"></div>
+    <div class="hole"></div>
+
+</div>
+
+
+<div class="film bottom">
+
+    <div class="hole"></div>
+    <div class="hole"></div>
+    <div class="hole"></div>
+    <div class="hole"></div>
+    <div class="hole"></div>
+    <div class="hole"></div>
+    <div class="hole"></div>
+    <div class="hole"></div>
+    <div class="hole"></div>
+    <div class="hole"></div>
+    <div class="hole"></div>
+    <div class="hole"></div>
+    <div class="hole"></div>
+    <div class="hole"></div>
+    <div class="hole"></div>
+
+</div>
+
+
+<!-- =====================================================
+     DECOR
+===================================================== -->
+
+<div class="decor d1">✦</div>
+
+<div class="decor d2">✿</div>
+
+<div class="decor d3">♥</div>
+
+<div class="decor d4">★</div>
+
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+<main>
+
+<div class="board">
+
+
+    <div class="tape one"></div>
+
+    <div class="tape two"></div>
+
+
+    <div class="reel">
+        🎞 REEL 03
+    </div>
+
+
+    <div class="warning">
+        ⚠ DO NOT OPEN UNLESS ARNAV
+    </div>
+
+
+    <!-- TITLE -->
+
+    <div class="title">
+
+        <div class="small">
+            SPECIAL DELIVERY · TAKE 03
+        </div>
+
+        <h1>
+            Open this.
+        </h1>
+
+        <div class="subtitle">
+            because apparently texting wasn't dramatic enough.
+        </div>
+
+    </div>
+
+
+    <!-- =================================================
+         ENVELOPE
+    ================================================= -->
+
+    <div
+        class="envelope-stage"
+        id="envelopeStage"
+    >
+
+
+        <div class="envelope">
+
+
+            <div class="front"></div>
+
+
+            <div class="flap"></div>
+
+
+            <div class="seal">
+                ♡
+            </div>
+
+
+        </div>
+
+
+        <button
+            class="open-button"
+            id="openButton"
+        >
+            💌 OPEN THIS
+        </button>
+
+
+    </div>
+
+
+    <!-- =================================================
+         STICKERS
+    ================================================= -->
+
+    <div class="sticker s1">
+        HANDLE WITH CHAOS
+    </div>
+
+
+    <div class="sticker s2">
+        100% UNNECESSARY
+    </div>
+
+
+    <div class="sticker s3">
+        ✦ VERY IMPORTANT ✦
+    </div>
+
+
+    <div class="sticker s4">
+        BFF MAIL™
+    </div>
+
+
+</div>
+
+</main>
+
+
+<!-- =====================================================
+     LETTER SCREEN
+===================================================== -->
+
+<section
+    class="letter-screen"
+    id="letterScreen"
+>
+
+
+<div class="letter-wrapper">
+
+
+    <div class="letter-top">
+
+        <div class="letter-reel">
+            🎞 REEL 03 · PERSONAL MESSAGE
+        </div>
+
+        <div class="letter-warning">
+            ⚠ SOME EMOTIONAL DAMAGE MAY OCCUR
+        </div>
+
+    </div>
+
+
+    <!-- =================================================
+         PAPER
+    ================================================= -->
+
+    <article class="letter">
+
+
+        <div class="letter-header">
+
+            <div class="to">
+                TO: ARNAV
+            </div>
+
+
+            <h2>
+                Hey, Idiot. ♡
+            </h2>
+
+
+            <div class="letter-date">
+                WRITTEN BY SWASTIKA · NO REFUNDS
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             YOUR LETTER
+             
+             REPLACE EVERYTHING INSIDE THIS DIV
+             WITH YOUR REAL LETTER.
+        ================================================= -->
+
+        <div class="letter-body">
+
+
+            <p>
+                Dear Arnav,
+            </p>
+
+
+            <p>
+                Okay so... here we are.
+                Somehow I made an entire movie out of
+                our friendship and now you get a letter too.
+            </p>
+
+
+            <p>
+                I want to tell you that you mean a lot lot to me although not being together.. everything you ever did was best for me you kept me alive
+		I really really want you to know that as much as i hate to go back to frnds (cause it always ends bad) i miss you so fucking lottttt...<3
+            </p>
+
+
+            <p>
+               I really miss you and ik this cant go back to how it was but frndship day is to be grateful to ppl who you love and r true frnds.. and you were always better  and best and more than a frnd like literally everything...<3
+            </p>
+
+
+            <p>
+              so I M GRATEFULLL FOR YOUUU A LOTTTTTTTTTTTT cause u kept me alive and all and i hope i can help you in same ways.. like u know.. U KNOW RIGHT 
+i hope i can keep u alive i hope i can someday heal you like u healed me DISPOSSIBLE BUT NOT IMPOSSIBLE
+yah das it
+i have a lot but i m too lazy too type bleh
+            </p>
+
+	    <p>
+		adding this on 27th
+		ok so umm its rakhi already and i went to rajasthan.. so this was incomplete like a lot of things were incomeplete so i hope i can comeplete this and send today AHHHHHHHHHHHHHHHHH
+WHATEVER I TEXTED U CAUSE I WANTED PHOTOS OF US.. UM  THE VC SS FOR THE FLIM BUT U WERE FUCKING FDUMB TO BE OFF WHATEVER FUCKK YOUUUUU
+yah das it 
+bye betchhhhhhh
+	   </p>
+
+
+            <div class="signature">
+
+                — Swastu ♡
+
+                <small>
+                    END OF MESSAGE · MAYBE.
+                </small>
+
+            </div>
+
+
+        </div>
+
+
+    </article>
+
+
+    <!-- NEXT PAGE -->
+
+    <div class="continue">
+
+        <a href="page4.html">
+            ✦ CONTINUE THE FILM →
+        </a>
+
+    </div>
+
+
+</div>
+
+</section>
+
+
+<script>
+
+/* =====================================================
+   GET ELEMENTS
+===================================================== */
+
+const openButton =
+    document.getElementById("openButton");
+
+const envelopeStage =
+    document.getElementById("envelopeStage");
+
+const letterScreen =
+    document.getElementById("letterScreen");
+
+
+/* =====================================================
+   CONFETTI
+===================================================== */
+
+function createConfetti(amount) {
+
+    const symbols = [
+        "✦",
+        "★",
+        "♥",
+        "✿",
+        "●"
+    ];
+
+
+    const colors = [
+        "#4CAFAE",
+        "#CE6385",
+        "#E9B9B4",
+        "#F8D0D0",
+        "#FCCF90"
+    ];
+
+
+    for (
+        let i = 0;
+        i < amount;
+        i++
+    ) {
+
+        const piece =
+            document.createElement("div");
+
+
+        piece.className =
+            "confetti";
+
+
+        piece.textContent =
+            symbols[
+                Math.floor(
+                    Math.random()
+                    * symbols.length
+                )
+            ];
+
+
+        piece.style.color =
+            colors[
+                Math.floor(
+                    Math.random()
+                    * colors.length
+                )
+            ];
+
+
+        piece.style.left =
+            Math.random() * 100 + "vw";
+
+
+        piece.style.fontSize =
+            (9 + Math.random() * 12) + "px";
+
+
+        piece.style.animationDuration =
+            (2.2 + Math.random() * 3) + "s";
+
+
+        piece.style.animationDelay =
+            Math.random() * .5 + "s";
+
+
+        document.body.appendChild(piece);
+
+
+        setTimeout(
+            () => piece.remove(),
+            5500
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   OPEN LETTER
+===================================================== */
+
+openButton.addEventListener(
+    "click",
+    () => {
+
+
+        /* prevent clicking twice */
+
+        openButton.disabled = true;
+
+
+        /* envelope opens */
+
+        envelopeStage.classList.add("open");
+
+
+        /* celebration */
+
+        createConfetti(100);
+
+
+        /* hide button */
+
+        openButton.classList.add("hide");
+
+
+        /*
+           WAIT FOR ENVELOPE ANIMATION
+        */
+
+        setTimeout(
+            () => {
+
+                envelopeStage.classList.add("gone");
+
+            },
+            800
+        );
+
+
+        /*
+           SHOW LETTER
+        */
+
+        setTimeout(
+            () => {
+
+                letterScreen.classList.add("show");
+
+                createConfetti(60);
+
+            },
+            1200
+        );
+
+    }
+);
+
+</script>
+
+</body>
+
+</html>
